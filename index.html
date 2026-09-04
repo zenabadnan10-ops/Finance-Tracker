@@ -2,11 +2,184 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Shift</title>
+    <link rel="icon" type="image/png" href="/ChatGPT_Image_Sep_4__2026__05_10_40_PM-removebg-preview.png">
+    <title>Ledger</title>
   </head>
   <body>
+    <aside id="side-bar">
+      <img src="/ChatGPT_Image_Sep_4__2026__05_00_53_PM-removebg-preview.png" id="logo" alt="Ledger">
+      <nav aria-label="Primary">
+        <button class="nav-btns">
+          <img src="/grid.svg" class="nav-btn-img" alt="" aria-hidden="true" aria-current="page">
+          Dashboard
+        </button>
+        <button class="nav-btns">
+          <img src="/swap.svg" class="nav-btn-img" alt="" aria-hidden="true">
+          Transactions
+        </button>
+        <button class="nav-btns">
+          <img src="/pie.svg" class="nav-btn-img" alt="" aria-hidden="true">
+          Budgets
+        </button>
+        <button class="nav-btns">
+          <img src="/chartLine.svg" class="nav-btn-img" alt="" aria-hidden="true">
+          Analytics
+        </button>
+        <button class="nav-btns">
+          <img src="/layers.svg" class="nav-btn-img" alt="" aria-hidden="true">
+          Recurring Bills
+        </button>
+      </nav>
+    </aside>
+    <main>
+      <section id="dashboard" aria-labelledby="dashboard-heading">
+        <h1 id="dashboard-heading">
+          Dashboard
+        </h1>
+        <article class="dashboard-sections">
+          <h2 class="dashboard-sections-heading">
+            Total Balance
+          </h2>
+          <h1 class="first-row-amount">
+            Rs. 0
+          </h1>
+        </article>
+        <article class="dashboard-sections">
+          <h2 class="dashboard-sections-heading">
+            Income
+          </h2>
+          <h1 class="first-row-amount">
+            Rs. 0
+          </h1>
+        </article>
+        <article class="dashboard-sections">
+          <h2 class="dashboard-sections-heading">
+            Expenses
+          </h2>
+          <h1 class="first-row-amount">
+            Rs. 0
+          </h1>
+        </article>
+        <article class="dashboard-sections">
+          <div class="dashboard-heading-div">
+            <div class="dashboard-heading-right-div">
+              <h2 class="dashboard-sections-heading">
+                Spending Overview
+              </h2>
+              <p class="dashboard-section-desc">
+                Your spending activity over the year
+              </p>
+            </div>
+            <div class="dashboard-heading-left-div">
+              <button class="view-btn">
+                See Details ➡︎
+              </button>
+              <div class="income-expense-div">
+                <div class="income-div">
+                  <div class="circle"></div>
+                  <p class="income-expense">
+                    Income
+                  </p>
+                </div>
+                <div class="expense-div">
+                  <div class="circle"></div>
+                  <p class="income-expense">
+                    Expenses
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="spending-chart-div"></div>
+        </article>
+        <article class="dashboard-sections">
+          <div class="dashboard-heading-div">
+            <h2 class="dashboard-sections-heading">
+              Recurring Bills
+            </h2>
+            <button class="view-btn">
+              See Details ➡︎
+            </button>
+          </div>
+          <div class="recurring-bills-category">
+            <div class="paid-bills-div">
+              <p class="recurring-bills-heading">
+                Paid Bills
+              </p>
+              <p class="recurring-bills-amount">
+                Rs. 0
+              </p>
+            </div>
+            <div class="upcoming-bills-div">
+              <p class="recurring-bills-heading">
+                Total Upcoming
+              </p>
+              <p class="recurring-bills-amount">
+                Rs. 0
+              </p>
+            </div>
+            <div class="due-bills-div">
+              <p class="recurring-bills-heading">
+                Due Soon
+              </p>
+              <p class="recurring-bills-amount">
+                Rs. 0
+              </p>
+            </div>
+          </div>
+        </article>
+        <article class="dashboard-sections">
+          <div class="dashboard-heading-div">
+            <h2 class="dashboard-sections-heading">
+              Transactions
+            </h2>
+            <button class="view-btn">
+              View All ➡︎
+            </button>
+          </div>
+          <div class="transactions-div">
+
+          </div>
+        </article>
+        <article class="dashboard-sections">
+          <div class="dashboard-heading-div">
+            <h2 class="dashboard-sections-heading">
+              Budgets
+            </h2>
+            <button class="view-btn">
+              See Details ➡︎
+            </button>
+          </div>
+          <div class="budgets-div"></div>
+        </article>
+        <article class="dashboard-sections">
+          <h2 class="dashboard-sections-heading">
+            Insights
+          </h2>
+          <div class="no-insights">
+            <p class="no-insights-text">
+              No Insights Yet
+            </p>
+          </div>
+          <div class="positive-insight"></div>
+          <div class="neutral-insight"></div>
+          <div class="negative-insight"></div>
+        </article>
+      </section>
+      <section id="transactions" aria-labelledby="transactions-heading">
+
+      </section>
+      <section id="budgets" aria-labelledby="budgets-heading">
+
+      </section>
+      <section id="analytics" aria-labelledby="analytics-heading">
+
+      </section>
+      <section id="recurring-bills" aria-labelledby="recurring-bills-heading">
+
+      </section>
+    </main>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
