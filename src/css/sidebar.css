@@ -1,0 +1,63 @@
+#side-bar {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    background-color: var(--heading-color);
+    align-items: center;
+}
+
+#logo {
+    width: 100px;
+    height: 100px;
+}
+
+#nav {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.nav-btns {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--heading-color);
+    align-items: center;
+    padding: 10px 30px;
+    gap: 10px;
+    color: var(--background-color);
+    font-size: var(--small-text);
+    border-top-right-radius: var(--small-radius);
+    border-bottom-right-radius: var(--small-radius);
+    font-weight: bold;
+    transition: background-color var(--normal-transition), color var(--normal-transition), border-left var(--normal-transition);
+}
+
+.nav-btn-img {
+    width: 30px;
+    height: 30px;
+}
+
+.nav-btns:hover {
+    background-color: var(--background-color);
+    color: var(--heading-color);
+}
+
+.nav-btns:active {
+    background-color: var(--card-color);
+    color: var(--heading-color);
+    border-left: 4px solid rgb(0, 185, 129);
+}
+
+.icon-hover {
+    display: none;
+}
+
+.nav-btns:hover .icon-default {
+    display: none;
+}
+
+.nav-btns:hover .icon-hover {
+    display: block;
+}

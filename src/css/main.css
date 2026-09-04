@@ -1,0 +1,6 @@
+body {
+    display: flex;
+    flex-direction: row;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
