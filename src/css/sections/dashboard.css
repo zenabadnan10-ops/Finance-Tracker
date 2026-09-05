@@ -1,0 +1,225 @@
+p, h1, h2, h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--heading-color);
+}
+
+#dashboard {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: auto 100px 300px 350px auto;
+    gap: 20px;
+    padding: 40px;
+    padding-top: 20px;
+    background-color: var(--background-color);
+}
+
+#dashboard-heading {
+    font-size: var(--body-text);
+    grid-column: 1 / span 6;
+    grid-row: 1;
+    margin: 0;
+}
+
+.dashboard-sections-heading {
+    font-size: var(--body-text);
+}
+
+.dashboard-sections {
+    background-color: var(--card-color);
+    border-radius: var(--small-radius);
+    padding: 20px;
+}
+
+#dashboard-first-section {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+}
+
+#dashboard-first-section, #dashboard-second-section, #dashboard-third-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#dashboard-first-section h2, #dashboard-second-section h2, #dashboard-third-section h2 {
+    font-size: var(--small-text);
+    color: rgb(66, 66, 66);
+    font-weight: 500;
+}
+
+#dashboard-first-section h3, #dashboard-second-section h3, #dashboard-third-section h3 {
+    font-size: var(--large-text);
+}
+
+#dashboard-second-section {
+    grid-column: 3 / span 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+#dashboard-third-section {
+    grid-column: 5 / span 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+#dashboard-fourth-section {
+    grid-column: 1 / span 4;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dashboard-heading-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-heading-right-div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.dashboard-heading-left-div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.view-btn {
+    color: gray;
+    font-size: 12px;
+    background-color: var(--card-color);
+    border: none;
+    transition: background-color var(--normal-transition);
+}
+
+.view-btn:hover {
+    color: rgb(60, 60, 60);
+    cursor: pointer;
+}
+
+.view-btn:active {
+    color: black;
+}
+
+.income-expense-div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.dashboard-heading-right-div p {
+    font-size: var(--small-text);
+    color: rgb(90, 90, 90);;
+}
+
+.income-div, .expense-div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.income-div div {
+    background-color: green;
+}
+
+.expense-div div {
+    background-color: red;
+}
+
+.income-expense  {
+    color: rgb(90, 90, 90);
+    font-size: var(--small-text);
+}
+
+.circle {
+    width: 7px;
+    height: 7px;
+    border: none;
+    border-radius: var(--circle-radius);
+}
+
+#dashboard-fifth-section {
+    grid-column: 5 / span 2;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.recurring-bills-category {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.paid-bills-div, .upcoming-bills-div, .due-bills-div {
+    width: 100%;
+    background-color: var(--background-color);
+    padding: 20px 10px;
+    border-radius: var(--small-radius);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.paid-bills-div {
+    border-left: 4px solid green;
+}
+
+.upcoming-bills-div {
+    border-left: 4px solid rgb(198, 198, 0);
+}
+
+.due-bills-div {
+    border-left: 4px solid rgb(1, 1, 134);
+}
+
+.recurring-bills-heading {
+    color: rgb(90, 90, 90);
+    font-size: var(--small-text);
+}
+
+.recurring-bills-amount {
+    color: var(--heading-color);
+    font-weight: bold;
+    font-size: var(--small-text);
+}
+
+#dashboard-sixth-section {
+    grid-column: 1 / span 3;
+    grid-row: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#dashboard-seventh-section {
+    grid-column: 4 / span 3;
+    grid-row: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#dashboard-eight-section {
+    grid-column: 1 / span 6;
+    grid-row: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.no-insights p {
+    text-align: center;
+    font-size: var(--body-text);
+}

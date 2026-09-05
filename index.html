@@ -12,28 +12,28 @@
       <img src="/ChatGPT_Image_Sep_4__2026__05_00_53_PM-removebg-preview.png" id="logo" alt="Ledger">
       <nav id="nav" aria-label="Primary">
         <button class="nav-btns" aria-current="page">
-          <img src="/grid.svg" class="nav-btn-img icon-default" alt="">
-          <img src="/grid (1).svg" class="nav-btn-img icon-hover" alt="">
+          <img src="/grid.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
+          <img src="/grid (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Dashboard
         </button>
         <button class="nav-btns">
           <img src="/swap.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
-          <img src="/swap (1).svg" class="nav-btn-img icon-hover" alt="">
+          <img src="/swap (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Transactions
         </button>
         <button class="nav-btns">
           <img src="/pie.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
-          <img src="/pie (1).svg" class="nav-btn-img icon-hover" alt="">
+          <img src="/pie (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Budgets
         </button>
         <button class="nav-btns">
           <img src="/chartLine.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
-          <img src="/chartLine (1).svg" class="nav-btn-img icon-hover" alt="">
+          <img src="/chartLine (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Analytics
         </button>
         <button class="nav-btns">
           <img src="/layers.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
-          <img src="/layers (1).svg" class="nav-btn-img icon-hover" alt="">
+          <img src="/layers (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Recurring Bills
         </button>
       </nav>
@@ -43,31 +43,31 @@
         <h1 id="dashboard-heading">
           Dashboard
         </h1>
-        <article class="dashboard-sections">
+        <article class="dashboard-sections" id="dashboard-first-section">
           <h2 class="dashboard-sections-heading">
             Total Balance
           </h2>
-          <h1 class="first-row-amount">
+          <h3 class="first-row-amount">
             Rs. 0
-          </h1>
+          </h3>
         </article>
-        <article class="dashboard-sections">
+        <article class="dashboard-sections" id="dashboard-second-section">
           <h2 class="dashboard-sections-heading">
             Income
           </h2>
-          <h1 class="first-row-amount">
+          <h3 class="first-row-amount">
             Rs. 0
-          </h1>
+          </h3>
         </article>
-        <article class="dashboard-sections">
+        <article class="dashboard-sections" id="dashboard-third-section">
           <h2 class="dashboard-sections-heading">
             Expenses
           </h2>
-          <h1 class="first-row-amount">
+          <h3 class="first-row-amount">
             Rs. 0
-          </h1>
+          </h3>
         </article>
-        <article class="dashboard-sections">
+        <article class="dashboard-sections" id="dashboard-fourth-section">
           <div class="dashboard-heading-div">
             <div class="dashboard-heading-right-div">
               <h2 class="dashboard-sections-heading">
@@ -79,17 +79,17 @@
             </div>
             <div class="dashboard-heading-left-div">
               <button class="view-btn">
-                See Details ➡︎
+                See Details <span aria-hidden="true">→</span>
               </button>
               <div class="income-expense-div">
                 <div class="income-div">
-                  <div class="circle"></div>
+                  <div class="circle" aria-hidden="true"></div>
                   <p class="income-expense">
                     Income
                   </p>
                 </div>
                 <div class="expense-div">
-                  <div class="circle"></div>
+                  <div class="circle" aria-hidden="true"></div>
                   <p class="income-expense">
                     Expenses
                   </p>
@@ -97,15 +97,15 @@
               </div>
             </div>
           </div>
-          <div class="spending-chart-div"></div>
+          <div class="spending-chart-div" role="img" aria-label="Spending overview showing monthly income and expenses"></div>
         </article>
-        <article class="dashboard-sections">
+        <article class="dashboard-sections" id="dashboard-fifth-section">
           <div class="dashboard-heading-div">
             <h2 class="dashboard-sections-heading">
               Recurring Bills
             </h2>
             <button class="view-btn">
-              See Details ➡︎
+              See Details <span aria-hidden="true">→</span>
             </button>
           </div>
           <div class="recurring-bills-category">
@@ -135,31 +135,29 @@
             </div>
           </div>
         </article>
-        <article class="dashboard-sections">
+        <article class="dashboard-sections" id="dashboard-sixth-section">
           <div class="dashboard-heading-div">
             <h2 class="dashboard-sections-heading">
               Transactions
             </h2>
             <button class="view-btn">
-              View All ➡︎
+              View All <span aria-hidden="true">→</span>
             </button>
           </div>
-          <div class="transactions-div">
-
-          </div>
+          <div class="transactions-div"></div>
         </article>
-        <article class="dashboard-sections">
+        <article class="dashboard-sections" id="dashboard-seventh-section">
           <div class="dashboard-heading-div">
             <h2 class="dashboard-sections-heading">
               Budgets
             </h2>
             <button class="view-btn">
-              See Details ➡︎
+              See Details <span aria-hidden="true">→</span>
             </button>
           </div>
           <div class="budgets-div"></div>
         </article>
-        <article class="dashboard-sections">
+        <article class="dashboard-sections" id="dashboard-eight-section">
           <h2 class="dashboard-sections-heading">
             Insights
           </h2>
@@ -168,9 +166,11 @@
               No Insights Yet
             </p>
           </div>
-          <div class="positive-insight"></div>
-          <div class="neutral-insight"></div>
-          <div class="negative-insight"></div>
+          <div class="insights">
+            <div class="positive-insight"></div>
+            <div class="neutral-insight"></div>
+            <div class="negative-insight"></div>
+          </div>
         </article>
       </section>
       <section id="transactions" aria-labelledby="transactions-heading">
