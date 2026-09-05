@@ -1,7 +1,7 @@
-@import "/src/css/reset.css";
-@import "/src/css/variables.css";
+@import "/src/css/global/reset.css";
+@import "/src/css/global/variables.css";
 
-@import "/src/css/main.css";
+@import "/src/css/global/main.css";
 
-@import "/src/css/sidebar.css";
-@import "/src/css/dashboard.css";
+@import "/src/css/sections/sidebar.css";
+@import "/src/css/sections/dashboard.css";
