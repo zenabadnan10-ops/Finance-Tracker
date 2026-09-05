@@ -11,27 +11,27 @@
     <aside id="side-bar">
       <img src="/ChatGPT_Image_Sep_4__2026__05_00_53_PM-removebg-preview.png" id="logo" alt="Ledger">
       <nav id="nav" aria-label="Primary">
-        <button class="nav-btns" aria-current="page">
+        <button id="dashboard-btn" class="nav-btns" aria-current="page" data-section="dashboard">
           <img src="/grid.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
           <img src="/grid (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Dashboard
         </button>
-        <button class="nav-btns">
+        <button class="nav-btns" data-section="transactions">
           <img src="/swap.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
           <img src="/swap (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Transactions
         </button>
-        <button class="nav-btns">
+        <button class="nav-btns" data-section="budgets">
           <img src="/pie.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
           <img src="/pie (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Budgets
         </button>
-        <button class="nav-btns">
+        <button class="nav-btns" data-section="analytics">
           <img src="/chartLine.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
           <img src="/chartLine (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Analytics
         </button>
-        <button class="nav-btns">
+        <button class="nav-btns" data-section="recurring-bills">
           <img src="/layers.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
           <img src="/layers (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Recurring Bills
@@ -39,7 +39,7 @@
       </nav>
     </aside>
     <main>
-      <section id="dashboard" aria-labelledby="dashboard-heading">
+      <section id="dashboard" aria-labelledby="dashboard-heading" class="page-section">
         <h1 id="dashboard-heading">
           Dashboard
         </h1>
@@ -173,19 +173,27 @@
           </div>
         </article>
       </section>
-      <section id="transactions" aria-labelledby="transactions-heading">
-
+      <section id="transactions" aria-labelledby="transactions-heading" class="page-section">
+        <h1 id="transactions-heading">
+          Transactions
+        </h1>
       </section>
-      <section id="budgets" aria-labelledby="budgets-heading">
-
+      <section id="budgets" aria-labelledby="budgets-heading" class="page-section">
+        <h1 id="budgets-heading">
+          Budgets
+        </h1>
       </section>
-      <section id="analytics" aria-labelledby="analytics-heading">
-
+      <section id="analytics" aria-labelledby="analytics-heading" class="page-section">
+        <h1 id="analytics-heading">
+          Analytics
+        </h1>
       </section>
-      <section id="recurring-bills" aria-labelledby="recurring-bills-heading">
-
+      <section id="recurring-bills" aria-labelledby="recurring-bills-heading" class="page-section">
+        <h1 id="recurring-bills-category">
+          Recurring Bills
+        </h1>
       </section>
     </main>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>

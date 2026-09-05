@@ -48,7 +48,7 @@
     color: var(--heading-color);
 }
 
-.nav-btns:active {
+.btn-active {
     background-color: var(--card-color);
     color: var(--heading-color);
     border-left: 4px solid rgb(0, 185, 129);
@@ -63,5 +63,13 @@
 }
 
 .nav-btns:hover .icon-hover {
+    display: block;
+}
+
+.nav-btns.btn-active .icon-default {
+    display: none;
+}
+
+.nav-btns.btn-active .icon-hover {
     display: block;
 }
