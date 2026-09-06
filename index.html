@@ -174,9 +174,74 @@
         </article>
       </section>
       <section id="transactions" aria-labelledby="transactions-heading" class="page-section">
-        <h1 id="transactions-heading">
-          Transactions
-        </h1>
+        <div id="transactions-heading-section">
+          <div id="transactions-heading-div">
+            <h2 id="transactions-heading">
+              Transactions
+            </h2>
+            <p id="transactions-desc">
+              View, search and manage your financial activity.
+            </p>
+          </div>
+          <button type="button" class="add-transaction-btn">
+            + Add Transaction
+          </button>
+        </div>
+        <div id="transactions-sort-btns">
+          <label for="search-transactions" class="sr-only">Search Transactions</label>
+          <input id="search-transactions" type="search" placeholder="Search transactions...">
+          <button type="button" id="open-filter-modal" class="transactions-sort-btn">
+            Filter
+          </button>
+          <label for="sort-transaction">Sort Transactions</label>
+          <select id="sort-transaction" class="transactions-sort-btn">
+            <option value="" disabled selected hidden>Sort</option>
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="highest">Highest Amount</option>
+            <option value="lowest">Lowest Amount</option>
+          </select>
+          <label for="export-transaction">Export Transactions</label>
+          <select id="export-transaction" class="transactions-sort-btn">
+            <option value="" disabled selected hidden>Export</option>
+            <option value="json">Export as JSON</option>
+            <option value="csv">Export as CSV</option>
+          </select>
+        </div>
+        <div id="transactions-sections-btns">
+          <div id="transactions-sections-div" role="group" aria-label="Transaction categories">
+            <button type="button" class="transactions-sections-btn" aria-pressed="true">
+              All
+            </button>
+            <button type="button" class="transactions-sections-btn" aria-pressed="false">
+              Income
+            </button>
+            <button type="button" class="transactions-sections-btn" aria-pressed="false">
+              Expenses
+            </button>
+          </div>
+        </div>
+        <div id="transactions-summary-section" aria-live="polite">
+          <p class="transactions-summary-desc">
+            Showing 0 transactions
+          </p>
+          <p class="transactions-summary-amount">
+            Total: Rs. 0
+          </p>
+        </div>
+        <div class="no-transactions">
+          <h3 class="no-transactions">
+            No transactions found
+          </h3>
+          <p class="no-transactions">
+            Try changing your filters or add a new transaction.
+          </p>
+          <button type="button" class="add-transaction-btn">
+            + Add Transaction
+          </button>
+        </div>
+        <div id="transactions-cards-section">
+        </div>
       </section>
       <section id="budgets" aria-labelledby="budgets-heading" class="page-section">
         <h1 id="budgets-heading">
@@ -194,6 +259,109 @@
         </h1>
       </section>
     </main>
+    <dialog id="delete-transaction-modal" aria-labelledby="delete-transaction-heading">
+      <h2 id="delete-transaction-heading">
+        Delete Transaction
+      </h2>
+      <p>
+        Are you sure you want to delete this transaction?
+      </p>
+      <div id="delete-transaction-btns">
+        <button type="button" class="delete-btn">
+          Delete
+        </button>
+        <button type="button" class="cancel-btn">
+          Cancel
+        </button>
+      </div>
+    </dialog>
+    <dialog id="filter-transaction-modal" aria-labelledby="filter-transaction-heading">
+      <h2 id="filter-transaction-heading">
+        Filter Transactions
+      </h2>
+      <form id="filter-transaction-form">
+        <label for="filter-transaction-category">Category</label>
+        <select id="filter-transaction-category">
+          <option value="">All Categories</option>
+          <option value="food">Food</option>
+          <option value="salary">Salary</option>
+          <option value="transport">Transport</option>
+          <option value="freelance">Freelance</option>
+          <option value="entertainment">Entertainment</option>
+        </select>
+        <label for="filter-transaction-date">Date Range</label>
+        <select id="filter-transaction-date">
+          <option value="">All Time</option>
+          <option value="today">Today</option>
+          <option value="week">This Week</option>
+          <option value="month">This Month</option>
+          <option value="year">This Year</option>
+        </select>
+        <div id="date-range-div">
+          <label for="transaction-date-from">From</label>
+          <input type="date" id="transaction-date-from">
+          <label for="transaction-date-to">To</label>
+          <input type="date" id="transaction-date-to">
+        </div>
+        <div id="amount-range-div">
+          <span id="amount-range-label">Amount Range (Rs.)</span>
+          <label for="transaction-amount-from" class="sr-only">Minimum amount</label>
+          <input type="number" id="transaction-amount-from" placeholder="Min" min="0" aria-describedby="amount-range-label">
+          <p aria-hidden="true">-</p>
+          <label for="transaction-amount-to" class="sr-only">Maximum amount</label>
+          <input type="number" id="transaction-amount-to" placeholder="Max" min="0" aria-describedby="amount-range-label">
+        </div>
+        <div id="recurring-transaction-div">
+          <input type="checkbox" id="recurring-transaction">
+          <label for="recurring-transaction">Recurring only</label>
+        </div>
+        <div id="filter-transaction-btns">
+          <button type="submit">Apply Filters</button>
+          <button type="button" class="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="add-transaction-modal" aria-labelledby="add-transaction-heading">
+      <h2 id="add-transaction-heading">
+        Add Transaction
+      </h2>
+      <form id="add-transaction-form">
+        <fieldset id="transaction-type-div">
+          <legend>Transaction Type</legend>
+          <input type="radio" id="transaction-type-expense" name="transaction-type" value="expense" checked>
+          <label for="transaction-type-expense">Expense</label>
+          <input type="radio" id="transaction-type-income" name="transaction-type" value="income">
+          <label for="transaction-type-income">Income</label>
+        </fieldset>
+        <label for="transaction-desc">Description</label>
+        <input type="text" id="transaction-desc" required placeholder="e.g. Grocery">
+        <div id="transaction-amount-category-div">
+          <label for="transaction-amount">Amount (Rs.)</label>
+          <input required type="number" id="transaction-amount" min="0">
+          <label for="add-transaction-category">Category</label>
+          <select required id="add-transaction-category">
+            <option value="" disabled selected hidden>Select category</option>
+            <option value="food">Food</option>
+            <option value="salary">Salary</option>
+            <option value="transport">Transport</option>
+            <option value="freelance">Freelance</option>
+            <option value="entertainment">Entertainment</option>
+          </select>
+        </div>
+        <label for="transaction-add-date">Date</label>
+        <input required type="date" id="transaction-add-date">
+        <div id="add-recurring-div">
+          <input type="checkbox" id="add-recurring-transaction">
+          <label for="add-recurring-transaction">This is a recurring transaction</label>
+        </div>
+        <label for="transaction-notes">Notes (optional)</label>
+        <textarea id="transaction-notes" cols="4" rows="4"></textarea>
+        <div id="add-transaction-btns">
+          <button type="submit">Add Transaction</button>
+          <button type="button" class="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </dialog>
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>
