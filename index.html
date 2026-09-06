@@ -176,10 +176,10 @@
       <section id="transactions" aria-labelledby="transactions-heading" class="page-section">
         <div id="transactions-heading-section">
           <div id="transactions-heading-div">
-            <h2 id="transactions-heading">
+            <h2>
               Transactions
             </h2>
-            <p id="transactions-desc">
+            <p>
               View, search and manage your financial activity.
             </p>
           </div>
@@ -188,52 +188,56 @@
           </button>
         </div>
         <div id="transactions-sort-btns">
-          <label for="search-transactions" class="sr-only">Search Transactions</label>
-          <input id="search-transactions" type="search" placeholder="Search transactions...">
-          <button type="button" id="open-filter-modal" class="transactions-sort-btn">
-            Filter
-          </button>
-          <label for="sort-transaction">Sort Transactions</label>
-          <select id="sort-transaction" class="transactions-sort-btn">
-            <option value="" disabled selected hidden>Sort</option>
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
-            <option value="highest">Highest Amount</option>
-            <option value="lowest">Lowest Amount</option>
+          <div>
+            <label for="search-transactions" class="sr-only">Search Transactions</label>
+            <input id="search-transactions" type="search" placeholder="Search transactions...">
+          </div>
+          <select id="open-filter-modal" class="transactions-sort-btn">
+            <option value="" disabled selected hidden>Filter</option>
           </select>
-          <label for="export-transaction">Export Transactions</label>
-          <select id="export-transaction" class="transactions-sort-btn">
-            <option value="" disabled selected hidden>Export</option>
-            <option value="json">Export as JSON</option>
-            <option value="csv">Export as CSV</option>
-          </select>
-        </div>
-        <div id="transactions-sections-btns">
-          <div id="transactions-sections-div" role="group" aria-label="Transaction categories">
-            <button type="button" class="transactions-sections-btn" aria-pressed="true">
-              All
-            </button>
-            <button type="button" class="transactions-sections-btn" aria-pressed="false">
-              Income
-            </button>
-            <button type="button" class="transactions-sections-btn" aria-pressed="false">
-              Expenses
-            </button>
+          <div>
+            <label for="sort-transaction" class="sr-only">Sort Transactions</label>
+            <select id="sort-transaction" class="transactions-sort-btn">
+              <option value="" disabled selected hidden>Sort</option>
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+              <option value="highest">Highest Amount</option>
+              <option value="lowest">Lowest Amount</option>
+            </select>
+          </div>
+          <div>
+            <label for="export-transaction" class="sr-only">Export Transactions</label>
+            <select id="export-transaction" class="transactions-sort-btn">
+              <option value="" disabled selected hidden>Export</option>
+              <option value="json">Export as JSON</option>
+              <option value="csv">Export as CSV</option>
+            </select>
           </div>
         </div>
+        <div id="transactions-sections-div" role="group" aria-label="Transaction categories">
+          <button type="button" class="transactions-sections-btn" aria-pressed="true">
+            All
+          </button>
+          <button type="button" class="transactions-sections-btn" aria-pressed="false">
+            Income
+          </button>
+          <button type="button" class="transactions-sections-btn" aria-pressed="false">
+            Expenses
+          </button>
+        </div>
         <div id="transactions-summary-section" aria-live="polite">
-          <p class="transactions-summary-desc">
-            Showing 0 transactions
+          <p>
+            Showing 0 transactions •
           </p>
-          <p class="transactions-summary-amount">
+          <p>
             Total: Rs. 0
           </p>
         </div>
         <div class="no-transactions">
-          <h3 class="no-transactions">
+          <h3>
             No transactions found
           </h3>
-          <p class="no-transactions">
+          <p>
             Try changing your filters or add a new transaction.
           </p>
           <button type="button" class="add-transaction-btn">
