@@ -1,4 +1,4 @@
-p, h1, h2, h3 {
+p, h1, h2, h3, button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: var(--heading-color);
 }
