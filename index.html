@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link rel="icon" type="image/png" href="/ChatGPT_Image_Sep_4__2026__05_10_40_PM-removebg-preview.png">
     <title>Ledger</title>
   </head>
@@ -332,18 +333,18 @@
       <form id="add-transaction-form">
         <fieldset id="transaction-type-div">
           <legend>Transaction Type</legend>
-          <input type="radio" id="transaction-type-expense" name="transaction-type" value="expense" checked>
+          <input type="radio" id="transaction-type-expense" name="type" value="expense" checked>
           <label for="transaction-type-expense">Expense</label>
-          <input type="radio" id="transaction-type-income" name="transaction-type" value="income">
+          <input type="radio" id="transaction-type-income" name="type" value="income">
           <label for="transaction-type-income">Income</label>
         </fieldset>
         <label for="transaction-desc">Description</label>
-        <input type="text" id="transaction-desc" required placeholder="e.g. Grocery">
+        <input type="text" name="desc" id="transaction-desc" required placeholder="e.g. Grocery">
         <div id="transaction-amount-category-div">
           <label for="transaction-amount">Amount (Rs.)</label>
-          <input required type="number" id="transaction-amount" min="0">
+          <input name="amount" required type="number" id="transaction-amount" min="0">
           <label for="add-transaction-category">Category</label>
-          <select required id="add-transaction-category">
+          <select name="category" required id="add-transaction-category">
             <option value="" disabled selected hidden>Select category</option>
             <option value="food">Food</option>
             <option value="salary">Salary</option>
@@ -353,19 +354,19 @@
           </select>
         </div>
         <label for="transaction-add-date">Date</label>
-        <input required type="date" id="transaction-add-date">
+        <input name="date" required type="date" id="transaction-add-date">
         <div id="add-recurring-div">
-          <input type="checkbox" id="add-recurring-transaction">
+          <input name="recurring" type="checkbox" id="add-recurring-transaction">
           <label for="add-recurring-transaction">This is a recurring transaction</label>
         </div>
         <label for="transaction-notes">Notes (optional)</label>
-        <textarea id="transaction-notes" cols="4" rows="4"></textarea>
+        <textarea name="notes" id="transaction-notes" cols="4" rows="4"></textarea>
         <div id="add-transaction-btns">
-          <button type="submit">Add Transaction</button>
-          <button type="button" class="cancel-btn">Cancel</button>
+          <button id="submit-btn" type="submit">Add Transaction</button>
+          <button type="button" id="cancel-add-btn">Cancel</button>
         </div>
       </form>
     </dialog>
-    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/app.js"></script>
   </body>
 </html>
