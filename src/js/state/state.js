@@ -1,3 +1,6 @@
 export const states = {
-    transactions: []
+    transactions: [],
+    ui: {
+        editingTransactionId: null
+    }
 }

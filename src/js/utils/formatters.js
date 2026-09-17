@@ -8,8 +8,14 @@ export const formatDate = (date) => {
 
 export const formatAmount = (amount) => {
 
+    const numericAmount = Number(amount);
+
+    if (isNaN(numericAmount)) {
+        return "0.00"; 
+    }
+
     return new Intl.NumberFormat("en-PK", {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
-    }).format(amount);
+    }).format(numericAmount);
 };
