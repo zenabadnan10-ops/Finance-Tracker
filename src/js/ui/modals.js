@@ -2,6 +2,15 @@ const addModal = document.getElementById("add-transaction-modal");
 const addForm = document.getElementById("add-transaction-form");
 const modalName = document.getElementById("add-transaction-heading");
 const formBtn = document.getElementById("submit-btn");
+const deleteModal = document.getElementById("delete-transaction-modal");
+
+export const openDeleteModal = () => {
+    deleteModal.showModal();
+}
+
+export const closeDeleteModal = () => {
+    deleteModal.close();
+}
 
 export const openTransactionModal = (transaction = null) => {
 

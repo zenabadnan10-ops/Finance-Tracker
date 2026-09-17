@@ -42,3 +42,17 @@ export const editTransaction = (id, data) => {
 
     saveData(states.transactions);
 }
+
+export const deleteTransaction = (id) => {
+
+    const index = states.transactions.findIndex(
+        transaction => transaction.id === id
+    );
+
+    if(index === -1) return;
+
+    states.transactions.splice(index, 1);
+
+    saveData(states.transactions);
+
+}
