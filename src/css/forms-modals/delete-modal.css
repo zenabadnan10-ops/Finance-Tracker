@@ -1,0 +1,24 @@
+#delete-transaction-modal {
+    margin: auto;
+
+    width: 90%;
+    max-width: 500px; 
+    height: 40vh;
+    border: none;
+    border-radius: 8px;
+    padding: 1.5rem;
+
+    &::backdrop {
+        background-color: #00000080;
+        backdrop-filter: blur(2px);
+    }
+}
+
+#delete-transaction-modal[open] {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    padding-top: 50px;
+}
+

@@ -6,3 +6,6 @@
 @import "/src/css/sections/sidebar.css";
 @import "/src/css/sections/dashboard.css";
 @import "/src/css/sections/transactions.css";
+
+@import "/src/css/forms-modals/add-edit-form.css";
+@import "/src/css/forms-modals/delete-modal.css";
