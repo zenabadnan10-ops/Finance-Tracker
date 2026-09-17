@@ -2,7 +2,7 @@ import { states } from "../state/state.js";
 import { saveData } from "../storage/localStorage.js";
 
 export const addTransaction = (data) => {
-    
+
     states.transactions.push(
         {
             id: crypto.randomUUID(),
@@ -16,6 +16,29 @@ export const addTransaction = (data) => {
             createdAt: Date.now()
         }
     );
+
+    saveData(states.transactions);
+};
+
+export const getTransaction = (id) => {
+    return states.transactions.find(
+        transaction => transaction.id === id
+    );
+};
+
+export const editTransaction = (id, data) => {
+
+    const index = states.transactions.findIndex(
+        transaction => transaction.id === id
+    );
+
+    if(index === -1) return;
+
+    states.transactions[index] = {
+        ...states.transactions[index],
+        ...data,
+        amount: Number(data.amount)
+    };
 
     saveData(states.transactions);
 }

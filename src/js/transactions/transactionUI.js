@@ -61,10 +61,10 @@ const createTransactionElement = (transaction) => {
             </p>
             <div class="transaction-icons">
                 ${recurringIconHtml}
-                <button type="button" class="edit-transaction-btn" aria-label="Edit transaction">
+                <button data-action="edit" type="button" data-id="${transaction.id}" class="edit-transaction-btn" aria-label="Edit transaction">
                     <i class="ti ti-edit" aria-hidden="true"></i>
                 </button>
-                <button type="button" class="delete-transaction-btn" aria-label="Delete transaction">
+                <button data-action="delete" type="button" data-id="${transaction.id}" class="delete-transaction-btn" aria-label="Delete transaction">
                     <i class="ti ti-trash" aria-hidden="true"></i>
                 </button>
             </div>

@@ -1,6 +1,6 @@
 import {renderNavigation} from "./ui/switch-sections.js";
 import { closeTransactionModal, getForm, openTransactionModal, resetForm } from "./ui/modals.js";
-import { addTransaction } from "./transactions/transactions.js";
+import { addTransaction, editTransaction, getTransaction } from "./transactions/transactions.js";
 import { renderTransactions } from "./transactions/transactionUI.js";
 import { states } from "./state/state.js";
 import { validateForm } from "./transactions/validation.js";
@@ -8,19 +8,32 @@ import { loadData } from "./storage/localStorage.js";
 
 const addTransactionBtns = document.querySelectorAll(".add-transaction-btn");
 const cancelBtn = document.getElementById("cancel-add-btn");
+const transactionList = document.getElementById("transactions-cards-section");
 
 const setupEventListeners = () => {
 
     addTransactionBtns.forEach(btn => {
         btn.addEventListener("click", () =>{
-            openTransactionModal();
+            states.ui.editingTransactionId = null;
             resetForm();
+            openTransactionModal();
         })
     });
     
     cancelBtn.addEventListener("click", () => {
+        states.ui.editingTransactionId = null;
         closeTransactionModal();
     });
+
+    transactionList.addEventListener("click", (e) => {
+        const editBtn = e.target.closest('[data-action="edit"]');
+
+        const id = editBtn.dataset.id;
+        const transaction = getTransaction(id);
+
+        states.ui.editingTransactionId = id;
+        openTransactionModal(transaction);
+    })
 
     getForm().addEventListener("submit", (e) => {
         e.preventDefault();
@@ -28,7 +41,7 @@ const setupEventListeners = () => {
         handleSubmission();
     })
 
-}
+};
 
 
 const showErrors = (errors) => {
@@ -57,7 +70,12 @@ const handleSubmission = () => {
         return;
     }
 
-    addTransaction(transactionData);
+    if(states.ui.editingTransactionId) {
+        editTransaction(states.ui.editingTransactionId, transactionData);
+        states.ui.editingTransactionId = null;
+    } else {
+        addTransaction(transactionData);
+    }
 
     renderTransactions(states.transactions);
     resetForm();
