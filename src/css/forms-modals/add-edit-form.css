@@ -1,0 +1,141 @@
+#add-transaction-modal {
+    margin: auto;
+
+    width: 90%;
+    max-width: 600px; 
+    height: 85vh;
+    border: none;
+    border-radius: 8px;
+    padding: 1.5rem;
+
+    &::backdrop {
+        background-color: #00000080;
+        backdrop-filter: blur(2px);
+    }
+}
+
+#add-transaction-modal[open] {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label, input, select {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#add-transaction-heading {
+    text-align: center;
+    font-size: var(--h3);
+    color: var(--heading-color);
+}
+
+#add-transaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#transaction-type-div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    appearance: none;
+    border: none;
+    outline: none;
+    align-items: center;
+}
+
+#transaction-type-div legend {
+    margin-bottom: 10px;
+    font-size: var(--body-text);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#transaction-type-expense {
+    margin-left: 10px;
+}
+
+label[for="transaction-type-expense"] {
+    margin-right: 20px;
+}
+
+label {
+    margin-bottom: -10px;
+}
+
+input, select {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(94, 94, 94);
+}
+
+#transaction-amount-category-div {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+#transaction-notes {
+    border: 1px solid rgb(94, 94, 94);
+    border-radius: 5px;
+    resize: none;
+    padding: 5px;
+}
+
+#submit-btn, #delete-modal-btn {
+    border: none;
+    background-color: var(--heading-color);
+    border-radius: var(--large-radius);
+    color: var(--background-color);
+    padding: 10px 15px;
+    transition: transform var(--normal-transition), background-color var(--normal-transition);
+}
+
+#cancel-add-btn, #close-transaction-btn {
+    border: none;
+    background-color: white;
+    border-radius: var(--large-radius);
+    color: var(--heading-color);
+    padding: 10px 15px;
+    transition: transform var(--normal-transition), background-color var(--normal-transition);
+}
+
+#cancel-add-btn:hover, #close-transaction-btn:hover {
+    background-color: var(--background-color);
+    transform: scale(1.02) translateY(2px);
+    cursor: pointer;
+}
+
+#submit-btn:hover, #delete-modal-btn:hover {
+    background-color: rgb(48, 48, 48);
+    transform: scale(1.02) translateY(-2px);
+    cursor: pointer;
+}
+
+#cancel-add-btn:active, #close-transaction-btn:hover {
+    background-color: rgb(167, 167, 167);
+    transform: translateY(-2px);
+}
+
+#category-div, #amount-div  {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+}
+
+#submit-btn:active, #delete-modal-btn:active {
+    background-color: rgb(0, 0, 0);
+    transform: translateY(2px);
+}
+
+#add-transaction-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

@@ -1,21 +1,13 @@
+// ui/modals.js
+
 const addModal = document.getElementById("add-transaction-modal");
 const addForm = document.getElementById("add-transaction-form");
-const modalName = document.getElementById("add-transaction-heading");
-const formBtn = document.getElementById("submit-btn");
 const deleteModal = document.getElementById("delete-transaction-modal");
 
-export const openDeleteModal = () => {
-    deleteModal.showModal();
-}
-
-export const closeDeleteModal = () => {
-    deleteModal.close();
-}
-
 export const openTransactionModal = (transaction = null) => {
+    if (!addModal) return;
 
-    if(transaction) {
-
+    if (transaction) {
         addForm.elements["type"].value = transaction.type;
         addForm.elements["desc"].value = transaction.description;
         addForm.elements["amount"].value = transaction.amount;
@@ -24,27 +16,39 @@ export const openTransactionModal = (transaction = null) => {
         addForm.elements["recurring"].checked = transaction.recurring === "on" || transaction.recurring === true;
         addForm.elements["notes"].value = transaction.notes || "";
 
-        modalName.textContent = "Edit Transaction"
-        formBtn.textContent = "Edit Transaction"
-
+        document.getElementById("add-transaction-heading").textContent = "Edit Transaction";
+        document.getElementById("submit-btn").textContent = "Edit Transaction";
     } else {
-
-        modalName.textContent = "Add Transaction"
-        formBtn.textContent = "Add Transaction"
-
+        resetForm();
+        document.getElementById("add-transaction-heading").textContent = "Add Transaction";
+        document.getElementById("submit-btn").textContent = "Add Transaction";
     }
 
     addModal.showModal();
 };
 
 export const closeTransactionModal = () => {
-    addModal.close();
+    if (addModal && addModal.open) {
+        addModal.close();
+    }
+};
+
+export const openDeleteModal = () => {
+    if (deleteModal) deleteModal.showModal();
+};
+
+export const closeDeleteModal = () => {
+    if (deleteModal && deleteModal.open) deleteModal.close();
 };
 
 export const resetForm = () => {
-    addForm.reset();
+    if (addForm) {
+        addForm.reset();
+        // Force uncheck recurring checkbox
+        if (addForm.elements["recurring"]) {
+            addForm.elements["recurring"].checked = false;
+        }
+    }
 };
 
-export const getForm = () => {
-    return addForm;
-};
+export const getForm = () => addForm;

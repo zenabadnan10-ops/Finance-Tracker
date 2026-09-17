@@ -46,8 +46,11 @@ const setupEventListeners = () => {
         })
     });
     
-    cancelBtn.addEventListener("click", () => {
+    cancelBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
         states.ui.editingTransactionId = null;
+        resetForm();
         closeTransactionModal();
     });
 

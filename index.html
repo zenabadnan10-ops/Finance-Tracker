@@ -341,17 +341,21 @@
         <label for="transaction-desc">Description</label>
         <input type="text" name="desc" id="transaction-desc" required placeholder="e.g. Grocery">
         <div id="transaction-amount-category-div">
-          <label for="transaction-amount">Amount (Rs.)</label>
-          <input type="any" name="amount" required type="number" id="transaction-amount" min="0">
-          <label for="add-transaction-category">Category</label>
-          <select name="category" required id="add-transaction-category">
-            <option value="" disabled selected hidden>Select category</option>
-            <option value="food">Food</option>
-            <option value="salary">Salary</option>
-            <option value="transport">Transport</option>
-            <option value="freelance">Freelance</option>
-            <option value="entertainment">Entertainment</option>
-          </select>
+          <div id="amount-div">
+            <label for="transaction-amount">Amount (Rs.)</label>
+            <input type="number" step="any" name="amount" required type="number" id="transaction-amount" min="0">
+          </div>
+          <div id="category-div">
+            <label for="add-transaction-category">Category</label>
+            <select name="category" required id="add-transaction-category">
+              <option value="" disabled selected hidden>Select category</option>
+              <option value="food">Food</option>
+              <option value="salary">Salary</option>
+              <option value="transport">Transport</option>
+              <option value="freelance">Freelance</option>
+              <option value="entertainment">Entertainment</option>
+            </select>
+          </div>
         </div>
         <label for="transaction-add-date">Date</label>
         <input name="date" required type="date" id="transaction-add-date">
@@ -360,7 +364,7 @@
           <label for="add-recurring-transaction">This is a recurring transaction</label>
         </div>
         <label for="transaction-notes">Notes (optional)</label>
-        <textarea name="notes" id="transaction-notes" cols="4" rows="4"></textarea>
+        <textarea name="notes" id="transaction-notes" cols="3" rows="3"></textarea>
         <div id="add-transaction-btns">
           <button id="submit-btn" type="submit">Add Transaction</button>
           <button type="button" id="cancel-add-btn">Cancel</button>
