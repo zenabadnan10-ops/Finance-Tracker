@@ -80,6 +80,7 @@
 
 #search-transactions:hover {
   background-color: #ececec;
+  cursor: text;
 }
 
 #search-transactions:focus {
