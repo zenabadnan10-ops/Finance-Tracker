@@ -178,6 +178,11 @@ option {
     color: gray;
 }
 
+#transactions-summary-section span {
+    font-size: 12px;
+    color: gray;
+}
+
 .no-transactions {
     text-align: center;
     background-color: var(--card-color);

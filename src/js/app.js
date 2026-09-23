@@ -1,7 +1,7 @@
 import {renderNavigation} from "./ui/switch-sections.js";
 import { closeDeleteModal, closeTransactionModal, getForm, openDeleteModal, openTransactionModal, resetForm } from "./ui/modals.js";
 import { addTransaction, deleteTransaction, editTransaction, getTransaction } from "./transactions/transactions.js";
-import { renderTransactions } from "./transactions/transactionUI.js";
+import { renderSummary, renderTransactions } from "./transactions/transactionUI.js";
 import { states } from "./state/state.js";
 import { validateForm } from "./transactions/validation.js";
 import { loadData } from "./storage/localStorage.js";
@@ -31,6 +31,7 @@ const setupEventListeners = () => {
         if(id) {
             deleteTransaction(id);
             renderTransactions(states.transactions);
+            renderSummary(states.transactions);
             states.ui.deletingTransactionId = null;
         }
 
@@ -120,6 +121,7 @@ const handleSubmission = () => {
     }
 
     renderTransactions(states.transactions);
+    renderSummary(states.transactions);
     resetForm();
     closeTransactionModal();
 };
@@ -129,6 +131,7 @@ function init() {
 
     renderNavigation();
     renderTransactions(states.transactions);
+    renderSummary(states.transactions);
     setupEventListeners();
 }
 

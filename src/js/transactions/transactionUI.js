@@ -10,6 +10,8 @@ const categoryIcons = {
     freelance: "ti-briefcase",
     entertainment: "ti-device-tv"
 };
+const transactionsCount = document.getElementById("transactions-count");
+const transactionsTotal = document.getElementById("transactions-total");
 
 const getCategoryIcon = (category) => {
   return categoryIcons[category]
@@ -91,3 +93,25 @@ export const renderTransactions = (transactions) => {
         transactionList.appendChild(transactionElement);
     });
 };
+
+export const renderSummary = (transactions) => {
+
+    transactionsCount.textContent = transactions.length;
+    transactionsTotal.textContent = "";
+
+    let total = 0;
+    for(let i = 0; i < transactions.length; i++) {
+
+        let amount = Number(transactions[i].amount);
+
+        if(transactions[i].type == "income") {
+            total += amount;
+        } else {
+            total -= amount;
+        }
+    }
+
+    console.log(total);
+
+    transactionsTotal.textContent = Number(total);
+}
