@@ -150,16 +150,7 @@ option {
     font-size: 12px;
 }
 
-.transactions-sections-btn[aria-pressed="true"] {
-    border: none;
-    background-color: var(--card-color);
-    padding: 5px 10px;
-    border-radius: var(--small-radius);
-    color: var(--heading-color);
-    font-weight: bold;
-}
-
-.transactions-sections-btn[aria-pressed="false"] {
+.transactions-sections-btn {
     border: none;
     background-color: rgb(232, 232, 232);
     padding: 5px 10px;
@@ -167,11 +158,20 @@ option {
     transition: background-color var(--normal-transition), padding var(--normal-transition), border-radius var(--normal-transition), color var(--normal-transition);
 }
 
-.transactions-sections-btn[aria-pressed="false"]:hover {
+.transactions-sections-btn:hover {
     background-color: white;
     padding: 5px 10px;
     border-radius: var(--small-radius);
     color: var(--heading-color);
+}
+
+.section-btn-active {
+    border: none;
+    background-color: var(--card-color);
+    padding: 5px 10px;
+    border-radius: var(--small-radius);
+    color: var(--heading-color);
+    font-weight: bold;
 }
 
 #transactions-summary-section {

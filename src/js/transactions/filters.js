@@ -1,5 +1,18 @@
-import { states } from "../state/state";
+import { states } from "../state/state"
 import { renderSummary } from "./transactionUI";
+
+export const filterIncomeExpense = (type) => {
+
+    let result = states.transactions;
+
+    result = result.filter(transaction => {
+        return transaction.type === type;
+    });
+
+    renderSummary(result);
+
+    return result;
+};
 
 export const searchTransactions = (transactions, query) => {
 
@@ -25,4 +38,4 @@ export const getFilteredTransactions = () => {
     renderSummary(result);
 
     return result;
-}
+};
