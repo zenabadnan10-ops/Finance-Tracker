@@ -17,7 +17,7 @@
 #add-transaction-modal[open] {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 }
 
 label, input, select {
@@ -33,7 +33,7 @@ label, input, select {
 #add-transaction-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
 }
 
 #transaction-type-div {
@@ -105,7 +105,7 @@ input, select {
 
 #cancel-add-btn:hover, #close-transaction-btn:hover {
     background-color: var(--background-color);
-    transform: scale(1.02) translateY(2px);
+    transform: scale(1.02) translateY(-2px);
     cursor: pointer;
 }
 
@@ -117,7 +117,7 @@ input, select {
 
 #cancel-add-btn:active, #close-transaction-btn:hover {
     background-color: rgb(167, 167, 167);
-    transform: translateY(-2px);
+    transform: translateY(2px);
 }
 
 #category-div, #amount-div  {

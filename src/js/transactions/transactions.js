@@ -12,7 +12,6 @@ export const addTransaction = (data) => {
             category: data.category,
             date: data.date,
             recurring: data.recurring || "",
-            notes: data.notes || "",
             createdAt: Date.now()
         }
     );

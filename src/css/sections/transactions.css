@@ -64,6 +64,8 @@
 
 #search-transactions {
   background-image: url("/search (1).png");
+  -webkit-appearance: none;
+  -moz-appearance: none;
   background-repeat: no-repeat;
   background-position: 12px center;
   background-size: 16px 16px;
@@ -76,6 +78,10 @@
   border-radius: var(--small-radius);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
 }
 
 #search-transactions:hover {
@@ -228,10 +234,6 @@ option {
 .transaction:hover {
     transform: scale(1.02) translateX(-2px);
     box-shadow: var(--medium-shadow);
-}
-
-.transaction:active {
-    transform: translateY(2px);
 }
 
 .transaction-left {
