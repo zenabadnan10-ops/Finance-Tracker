@@ -5,6 +5,7 @@ import { renderSummary, renderTransactions } from "./transactions/transactionUI.
 import { states } from "./state/state.js";
 import { validateForm } from "./transactions/validation.js";
 import { loadData } from "./storage/localStorage.js";
+import { getFilteredTransactions } from "./transactions/filters.js";
 
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
@@ -17,8 +18,14 @@ const closeBtn = document.getElementById("close-transaction-btn");
 const deleteModalBtn = document.getElementById("delete-modal-btn");
 const cancelBtn = document.getElementById("cancel-add-btn");
 const transactionList = document.getElementById("transactions-cards-section");
+const searchInput = document.getElementById("search-transactions");
 
 const setupEventListeners = () => {
+
+    searchInput.addEventListener("input", (e) => {
+        states.ui.searchQuery = e.target.value;
+        renderTransactions(getFilteredTransactions());
+    });
 
     closeBtn.addEventListener("click", () => {
         closeDeleteModal();

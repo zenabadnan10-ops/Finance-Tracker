@@ -14,7 +14,6 @@ export const openTransactionModal = (transaction = null) => {
         addForm.elements["category"].value = transaction.category;
         addForm.elements["date"].value = transaction.date;
         addForm.elements["recurring"].checked = transaction.recurring === "on" || transaction.recurring === true;
-        addForm.elements["notes"].value = transaction.notes || "";
 
         document.getElementById("add-transaction-heading").textContent = "Edit Transaction";
         document.getElementById("submit-btn").textContent = "Edit Transaction";
