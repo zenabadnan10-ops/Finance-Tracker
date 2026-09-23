@@ -5,6 +5,7 @@ import { renderSummary, renderTransactions } from "./transactions/transactionUI.
 import { states } from "./state/state.js";
 import { validateForm } from "./transactions/validation.js";
 import { loadData } from "./storage/localStorage.js";
+import { filterIncomeExpense } from "./transactions/filters.js";
 
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
@@ -17,8 +18,32 @@ const closeBtn = document.getElementById("close-transaction-btn");
 const deleteModalBtn = document.getElementById("delete-modal-btn");
 const cancelBtn = document.getElementById("cancel-add-btn");
 const transactionList = document.getElementById("transactions-cards-section");
+const incomeFilterBtn = document.getElementById("income-filter-btn");
+const expenseFilterBtn = document.getElementById("expense-filter-btn");
+const noFilterBtn = document.getElementById("no-filter-btn");
 
 const setupEventListeners = () => {
+
+    incomeFilterBtn.addEventListener("click", () => {
+        renderTransactions(filterIncomeExpense("income"));
+        expenseFilterBtn.classList.remove("section-btn-active");
+        noFilterBtn.classList.remove("section-btn-active");
+        incomeFilterBtn.classList.add("section-btn-active");
+    });
+
+    expenseFilterBtn.addEventListener("click", () => {
+        renderTransactions(filterIncomeExpense("expense"));
+        expenseFilterBtn.classList.add("section-btn-active");
+        noFilterBtn.classList.remove("section-btn-active");
+        incomeFilterBtn.classList.remove("section-btn-active");
+    });
+
+    noFilterBtn.addEventListener("click", () => {
+        renderTransactions(states.transactions);
+        expenseFilterBtn.classList.remove("section-btn-active");
+        noFilterBtn.classList.add("section-btn-active");
+        incomeFilterBtn.classList.remove("section-btn-active");
+    });
 
     closeBtn.addEventListener("click", () => {
         closeDeleteModal();
