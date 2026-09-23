@@ -22,6 +22,7 @@ const transactionList = document.getElementById("transactions-cards-section");
 const incomeFilterBtn = document.getElementById("income-filter-btn");
 const expenseFilterBtn = document.getElementById("expense-filter-btn");
 const noFilterBtn = document.getElementById("no-filter-btn");
+const searchInput = document.getElementById("search-transactions");
 
 const setupEventListeners = () => {
 
@@ -45,9 +46,7 @@ const setupEventListeners = () => {
         noFilterBtn.classList.add("section-btn-active");
         incomeFilterBtn.classList.remove("section-btn-active");
         renderSummary(states.transactions);
-const searchInput = document.getElementById("search-transactions");
-
-const setupEventListeners = () => {
+    });
 
     searchInput.addEventListener("input", (e) => {
         states.ui.searchQuery = e.target.value;
