@@ -6,6 +6,7 @@ import { states } from "./state/state.js";
 import { validateForm } from "./transactions/validation.js";
 import { loadData } from "./storage/localStorage.js";
 import { filterIncomeExpense } from "./transactions/filters.js";
+import { getFilteredTransactions } from "./transactions/filters.js";
 
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
@@ -44,6 +45,13 @@ const setupEventListeners = () => {
         noFilterBtn.classList.add("section-btn-active");
         incomeFilterBtn.classList.remove("section-btn-active");
         renderSummary(states.transactions);
+const searchInput = document.getElementById("search-transactions");
+
+const setupEventListeners = () => {
+
+    searchInput.addEventListener("input", (e) => {
+        states.ui.searchQuery = e.target.value;
+        renderTransactions(getFilteredTransactions());
     });
 
     closeBtn.addEventListener("click", () => {

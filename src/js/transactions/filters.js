@@ -1,10 +1,6 @@
 import { states } from "../state/state"
 import { renderSummary } from "./transactionUI";
 
-export const searchTransactions = () => {
-    
-}
-
 export const filterIncomeExpense = (type) => {
 
     let result = states.transactions;
@@ -16,6 +12,21 @@ export const filterIncomeExpense = (type) => {
     renderSummary(result);
 
     return result;
+};
+
+export const searchTransactions = (transactions, query) => {
+
+    const lowerQuery = query.trim().toLowerCase();
+
+    if(!lowerQuery) return transactions;
+
+    return transactions.filter(transaction => {
+
+        const description = transaction.description.toLowerCase();
+        const category = transaction.category.toLowerCase();
+
+        return description.includes(lowerQuery) || category.includes(lowerQuery);
+    });
 };
 
 export const getFilteredTransactions = () => {

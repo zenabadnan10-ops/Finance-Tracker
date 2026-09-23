@@ -2,6 +2,7 @@ export const states = {
     transactions: [],
     ui: {
         editingTransactionId: null,
-        deletingTransactionId: null
+        deletingTransactionId: null,
+        searchQuery: ""
     }
 }
