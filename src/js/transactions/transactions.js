@@ -56,3 +56,14 @@ export const deleteTransaction = (id) => {
     saveData(states.transactions);
 
 }
+
+export const viewTransaction = (id) => {
+
+    const index = states.transactions.findIndex(
+        transaction => transaction.id === id
+    );
+
+    if(index === -1) return;
+
+    
+}

@@ -114,4 +114,4 @@ export const renderSummary = (transactions) => {
     console.log(total);
 
     transactionsTotal.textContent = Number(total);
-}
+};
