@@ -43,6 +43,7 @@ const setupEventListeners = () => {
         expenseFilterBtn.classList.remove("section-btn-active");
         noFilterBtn.classList.add("section-btn-active");
         incomeFilterBtn.classList.remove("section-btn-active");
+        renderSummary(states.transactions);
     });
 
     closeBtn.addEventListener("click", () => {
@@ -153,6 +154,7 @@ const handleSubmission = () => {
 
 function init() {
     states.transactions = loadData();
+    noFilterBtn.classList.add("section-btn-active");
 
     renderNavigation();
     renderTransactions(states.transactions);
