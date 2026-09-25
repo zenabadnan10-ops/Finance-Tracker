@@ -23,8 +23,14 @@ const incomeFilterBtn = document.getElementById("income-filter-btn");
 const expenseFilterBtn = document.getElementById("expense-filter-btn");
 const noFilterBtn = document.getElementById("no-filter-btn");
 const searchInput = document.getElementById("search-transactions");
+const sortInput = document.getElementById("sort-transaction");
 
 const setupEventListeners = () => {
+
+    sortInput.addEventListener("change", (e) => {
+        states.ui.sorting = e.target.value;
+        renderTransactions(getFilteredTransactions())
+    })
 
     incomeFilterBtn.addEventListener("click", () => {
         renderTransactions(filterIncomeExpense("income"));
@@ -164,7 +170,7 @@ function init() {
     noFilterBtn.classList.add("section-btn-active");
 
     renderNavigation();
-    renderTransactions(states.transactions);
+    renderTransactions(getFilteredTransactions());
     renderSummary(states.transactions);
     setupEventListeners();
 }

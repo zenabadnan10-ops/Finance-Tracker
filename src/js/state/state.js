@@ -3,6 +3,7 @@ export const states = {
     ui: {
         editingTransactionId: null,
         deletingTransactionId: null,
-        searchQuery: ""
+        searchQuery: "",
+        sorting: "newest"
     }
 }
