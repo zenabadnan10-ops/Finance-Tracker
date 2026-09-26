@@ -7,6 +7,7 @@ import { validateForm } from "./transactions/validation.js";
 import { loadData } from "./storage/localStorage.js";
 import { filterIncomeExpense } from "./transactions/filters.js";
 import { getFilteredTransactions } from "./transactions/filters.js";
+import { exportCSV, exportJSON } from "./transactions/export.js";
 
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
@@ -28,8 +29,19 @@ const filterInput = document.getElementById("open-filter-modal");
 const cancelFilterBtn = document.getElementById("filter-cancel-btn");
 const filterModal = document.getElementById("filter-transaction-modal");
 const filterForm = document.getElementById("filter-transaction-form");
+const exportSelect = document.getElementById("export-transaction");
 
 const setupEventListeners = () => {
+
+    exportSelect.addEventListener("change", (e) => {
+        const format = e.target.value;
+        const transactionsToExport = states.transactions;
+
+        if (format === "csv") exportCSV(transactionsToExport);
+        if (format === "json") exportJSON(transactionsToExport);
+
+        exportSelect.value = "";
+    })
 
     filterForm.addEventListener("submit", (e) => {
         
