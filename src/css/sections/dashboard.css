@@ -6,7 +6,7 @@ p, h1, h2, h3, button, span {
 #dashboard {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    grid-template-rows: auto 100px 300px 350px auto;
+    grid-template-rows: auto 100px 300px 380px auto;
     gap: 20px;
     padding: 40px;
     padding-top: 20px;
@@ -222,4 +222,14 @@ p, h1, h2, h3, button, span {
 .no-insights p {
     text-align: center;
     font-size: var(--body-text);
+}
+
+#no-recent-transactions {
+    margin: auto;
+}
+
+#transactions-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
