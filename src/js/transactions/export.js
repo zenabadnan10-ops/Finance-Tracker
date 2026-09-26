@@ -1,5 +1,3 @@
-import { formatDate } from "../utils/formatters";
-
 const downloadFile = (content, fileName, mimeType) => {
 
     const blob = new Blob([content], {type: mimeType});
