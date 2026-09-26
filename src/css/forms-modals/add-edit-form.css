@@ -115,7 +115,7 @@ input, select {
     cursor: pointer;
 }
 
-#cancel-add-btn:active, #close-transaction-btn:hover {
+#cancel-add-btn:active, #close-transaction-btn:active {
     background-color: rgb(167, 167, 167);
     transform: translateY(2px);
 }

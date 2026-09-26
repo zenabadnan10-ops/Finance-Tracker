@@ -120,6 +120,7 @@ const setupEventListeners = () => {
 
     closeBtn.addEventListener("click", () => {
         states.ui.deletingTransactionId = null;
+        closeDeleteModal();
     });
 
     deleteModalBtn.addEventListener("click", () => {

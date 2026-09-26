@@ -6,6 +6,8 @@
     --body-text-color: #636363;
     --error-color: red;
     --success-color: green;
+    --warning-color: #E6A700;
+    --critical-color: #E85D2C;
 
     --main-font: "Inter";
     --small-text: 14px;
