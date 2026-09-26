@@ -17,7 +17,7 @@
           <img src="/grid (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Dashboard
         </button>
-        <button class="nav-btns" data-section="transactions">
+        <button id="transactions-btn" class="nav-btns" data-section="transactions">
           <img src="/swap.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
           <img src="/swap (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Transactions
@@ -141,11 +141,14 @@
             <h2 class="dashboard-sections-heading">
               Transactions
             </h2>
-            <button class="view-btn">
+            <button id="view-transactions-btn" class="view-btn">
               View All <span aria-hidden="true">→</span>
             </button>
           </div>
-          <div class="transactions-div"></div>
+          <div id="no-recent-transactions">
+            <p>No Transactions Yet</p>
+          </div>
+          <div id="transactions-div"></div>
         </article>
         <article class="dashboard-sections" id="dashboard-seventh-section">
           <div class="dashboard-heading-div">

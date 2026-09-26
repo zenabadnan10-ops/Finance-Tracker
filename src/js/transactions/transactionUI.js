@@ -17,7 +17,7 @@ const getCategoryIcon = (category) => {
   return categoryIcons[category]
 };
 
-const createTransactionElement = (transaction) => {
+export const createTransactionElement = (transaction, { showActions = true, showRecurring = true } = {}) => {
     console.log("Creating card for:", transaction);
 
     const article = document.createElement("article");
@@ -31,11 +31,20 @@ const createTransactionElement = (transaction) => {
     const isRecurring = transaction.recurring === "on";
     const categoryIcon = getCategoryIcon(transaction.category);
 
-    const recurringIconHtml = isRecurring ? 
+    const recurringIconHtml = (isRecurring && showRecurring) ? 
     `<span class="recurring-indicator">
         <i class="ti ti-repeat" aria-hidden="true"></i>
         <span class="sr-only">Recurring transaction</span>
      </span>
+    ` : "";
+
+    const actionsHtml = showActions ? `
+        <button data-action="edit" type="button" data-id="${transaction.id}" class="edit-transaction-btn" aria-label="Edit transaction">
+            <i class="ti ti-edit" aria-hidden="true"></i>
+        </button>
+        <button data-action="delete" type="button" data-id="${transaction.id}" class="delete-transaction-btn" aria-label="Delete transaction">
+            <i class="ti ti-trash" aria-hidden="true"></i>
+        </button>
     ` : "";
 
     article.innerHTML = `
@@ -63,12 +72,7 @@ const createTransactionElement = (transaction) => {
             </p>
             <div class="transaction-icons">
                 ${recurringIconHtml}
-                <button data-action="edit" type="button" data-id="${transaction.id}" class="edit-transaction-btn" aria-label="Edit transaction">
-                    <i class="ti ti-edit" aria-hidden="true"></i>
-                </button>
-                <button data-action="delete" type="button" data-id="${transaction.id}" class="delete-transaction-btn" aria-label="Delete transaction">
-                    <i class="ti ti-trash" aria-hidden="true"></i>
-                </button>
+                ${actionsHtml}
             </div>
         </div>
     `;
