@@ -1,8 +1,7 @@
-// ui/modals.js
-
 const addModal = document.getElementById("add-transaction-modal");
 const addForm = document.getElementById("add-transaction-form");
 const deleteModal = document.getElementById("delete-transaction-modal");
+const filterModal = document.getElementById("filter-transaction-modal");
 
 export const openTransactionModal = (transaction = null) => {
     if (!addModal) return;
@@ -43,7 +42,7 @@ export const closeDeleteModal = () => {
 export const resetForm = () => {
     if (addForm) {
         addForm.reset();
-        // Force uncheck recurring checkbox
+
         if (addForm.elements["recurring"]) {
             addForm.elements["recurring"].checked = false;
         }
@@ -51,3 +50,11 @@ export const resetForm = () => {
 };
 
 export const getForm = () => addForm;
+
+export const closeFilterModal = () => {
+    if(filterModal) filterModal.close();
+};
+
+export const openFilterModal = () => {
+    if(filterModal) filterModal.showModal();
+};

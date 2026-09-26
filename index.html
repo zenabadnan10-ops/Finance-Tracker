@@ -193,9 +193,9 @@
             <label for="search-transactions" class="sr-only">Search Transactions</label>
             <input id="search-transactions" type="search" placeholder="Search transactions...">
           </div>
-          <select id="open-filter-modal" class="transactions-sort-btn">
-            <option value="" disabled selected hidden>Filter</option>
-          </select>
+          <button type="button" id="open-filter-modal" class="transactions-sort-btn">
+            Filter
+          </button>
           <div>
             <label for="sort-transaction" class="sr-only">Sort Transactions</label>
             <select id="sort-transaction" class="transactions-sort-btn">
@@ -286,7 +286,7 @@
       </h2>
       <form id="filter-transaction-form">
         <label for="filter-transaction-category">Category</label>
-        <select id="filter-transaction-category">
+        <select id="filter-transaction-category" name="category">
           <option value="">All Categories</option>
           <option value="food">Food</option>
           <option value="salary">Salary</option>
@@ -294,35 +294,35 @@
           <option value="freelance">Freelance</option>
           <option value="entertainment">Entertainment</option>
         </select>
+
         <label for="filter-transaction-date">Date Range</label>
-        <select id="filter-transaction-date">
+        <select id="filter-transaction-date" name="date">
           <option value="">All Time</option>
           <option value="today">Today</option>
           <option value="week">This Week</option>
           <option value="month">This Month</option>
           <option value="year">This Year</option>
         </select>
+
         <div id="date-range-div">
-          <label for="transaction-date-from">From</label>
-          <input type="date" id="transaction-date-from">
-          <label for="transaction-date-to">To</label>
-          <input type="date" id="transaction-date-to">
+          <div class="date-field">
+            <label for="transaction-date-from">From</label>
+            <input type="date" id="transaction-date-from" name="from">
+          </div>
+          <div class="date-field">
+            <label for="transaction-date-to">To</label>
+            <input type="date" id="transaction-date-to" name="to">
+          </div>
         </div>
-        <div id="amount-range-div">
-          <span id="amount-range-label">Amount Range (Rs.)</span>
-          <label for="transaction-amount-from" class="sr-only">Minimum amount</label>
-          <input type="number" id="transaction-amount-from" placeholder="Min" min="0" aria-describedby="amount-range-label">
-          <p aria-hidden="true">-</p>
-          <label for="transaction-amount-to" class="sr-only">Maximum amount</label>
-          <input type="number" id="transaction-amount-to" placeholder="Max" min="0" aria-describedby="amount-range-label">
-        </div>
+
         <div id="recurring-transaction-div">
-          <input type="checkbox" id="recurring-transaction">
+          <input type="checkbox" id="recurring-transaction" name="recurring">
           <label for="recurring-transaction">Recurring only</label>
         </div>
+
         <div id="filter-transaction-btns">
           <button type="submit">Apply Filters</button>
-          <button type="button" class="cancel-btn">Cancel</button>
+          <button type="button" id="filter-cancel-btn" class="cancel-btn">Cancel</button>
         </div>
       </form>
     </dialog>

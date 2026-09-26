@@ -1,5 +1,5 @@
 import {renderNavigation} from "./ui/switch-sections.js";
-import { closeDeleteModal, closeTransactionModal, getForm, openDeleteModal, openTransactionModal, resetForm } from "./ui/modals.js";
+import { closeDeleteModal, closeFilterModal, closeTransactionModal, getForm, openDeleteModal, openFilterModal, openTransactionModal, resetForm } from "./ui/modals.js";
 import { addTransaction, deleteTransaction, editTransaction, getTransaction } from "./transactions/transactions.js";
 import { renderSummary, renderTransactions } from "./transactions/transactionUI.js";
 import { states } from "./state/state.js";
@@ -24,8 +24,54 @@ const expenseFilterBtn = document.getElementById("expense-filter-btn");
 const noFilterBtn = document.getElementById("no-filter-btn");
 const searchInput = document.getElementById("search-transactions");
 const sortInput = document.getElementById("sort-transaction");
+const filterInput = document.getElementById("open-filter-modal");
+const cancelFilterBtn = document.getElementById("filter-cancel-btn");
+const filterModal = document.getElementById("filter-transaction-modal");
+const filterForm = document.getElementById("filter-transaction-form");
 
 const setupEventListeners = () => {
+
+    filterForm.addEventListener("submit", (e) => {
+        
+        e.preventDefault();
+
+        const filterData = new FormData(filterForm);
+
+        const min = filterData.get("min");
+        const max = filterData.get("max");
+
+        states.ui.filters = {
+            category: filterData.get("category") || "",
+            date: filterData.get("date") || "",
+            from: filterData.get("from") || "",
+            to: filterData.get("to") || "",
+            min: min === "" ? null : Number(min) || null,
+            max: max === "" ? null : Number(max) || null,
+            recurring: filterData.get("recurring") === "on" || null
+        };
+
+        console.log(states.ui.filters);
+
+        renderTransactions(getFilteredTransactions());
+        closeFilterModal();
+    })
+
+    filterInput.addEventListener("click", () => {
+        openFilterModal();
+    });
+
+    cancelFilterBtn.addEventListener("click", () => {
+        closeFilterModal();
+    });
+
+    document.addEventListener("click", (e) => {
+        const clickedInsideModal = filterModal.contains(e.target);
+        const clickedTrigger = filterInput.contains(e.target);
+
+        if (filterModal.open && !clickedInsideModal && !clickedTrigger) {
+            filterModal.close();
+        }
+    });
 
     sortInput.addEventListener("change", (e) => {
         states.ui.sorting = e.target.value;
@@ -60,7 +106,6 @@ const setupEventListeners = () => {
     });
 
     closeBtn.addEventListener("click", () => {
-        closeDeleteModal();
         states.ui.deletingTransactionId = null;
     });
 

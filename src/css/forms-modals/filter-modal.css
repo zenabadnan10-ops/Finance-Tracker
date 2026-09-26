@@ -1,0 +1,186 @@
+#filter-transaction-modal {
+    border: none;
+    border-radius: 16px;
+    padding: 20px;
+    width: 340px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin: auto;
+}
+
+#filter-transaction-modal::backdrop {
+    backdrop-filter: blur(2px);
+}
+
+#filter-transaction-heading {
+    margin: 0 0 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #171717;
+}
+
+#filter-transaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#filter-transaction-form label:not(.sr-only),
+#amount-range-label {
+    display: block;
+    font-size: 11px;
+    color: #9c9c9c;
+    margin-bottom: 4px;
+}
+
+#filter-transaction-category,
+#filter-transaction-date,
+#transaction-date-from,
+#transaction-date-to,
+#transaction-amount-from,
+#transaction-amount-to {
+    width: 100%;
+    padding: 7px 10px;
+    border: 1px solid #e8e0de;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #171717;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+#filter-transaction-category:focus,
+#filter-transaction-date:focus,
+#transaction-date-from:focus,
+#transaction-date-to:focus,
+#transaction-amount-from:focus,
+#transaction-amount-to:focus {
+    outline: none;
+    border-color: #171717;
+}
+
+.select-wrap {
+    position: relative;
+}
+
+.select-wrap select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 28px;
+    cursor: pointer;
+}
+
+.select-wrap i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: #9c9c9c;
+    pointer-events: none;
+}
+
+#transaction-date-from::-webkit-calendar-picker-indicator,
+#transaction-date-to::-webkit-calendar-picker-indicator {
+    filter: opacity(0.5);
+    cursor: pointer;
+}
+
+#date-range-div {
+    display: flex;
+    gap: 8px;
+    min-width: 0;
+}
+
+#date-range-div > div {
+    flex: 1;
+    min-width: 0;
+}
+
+#date-range-div input[type="date"] {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+#amount-range-div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+#amount-range-div input[type="number"] {
+    flex: 1;
+    min-width: 0;
+    width: 0; /* belt-and-suspenders: forces flex-basis calc instead of intrinsic size */
+    box-sizing: border-box;
+}
+
+#amount-range-div input {
+    flex: 1;
+    -moz-appearance: textfield;
+}
+
+#amount-range-div input::-webkit-outer-spin-button,
+#amount-range-div input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#amount-range-div p {
+    margin: 0;
+    font-size: 12px;
+    color: #9c9c9c;
+}
+
+#recurring-transaction-div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#recurring-transaction {
+    width: 15px;
+    height: 15px;
+    accent-color: #171717;
+    cursor: pointer;
+}
+
+#recurring-transaction-div label {
+    margin: 0;
+    font-size: 12px;
+    color: #171717;
+    cursor: pointer;
+}
+
+#filter-transaction-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 2px;
+}
+
+#filter-transaction-btns button {
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+#filter-transaction-btns .cancel-btn {
+    order: 1;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #171717;
+}
+
+#filter-transaction-btns button[type="submit"] {
+    order: 2;
+    background: #171717;
+    color: #ffffff;
+}

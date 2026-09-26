@@ -4,6 +4,15 @@ export const states = {
         editingTransactionId: null,
         deletingTransactionId: null,
         searchQuery: "",
-        sorting: "newest"
+        sorting: "newest",
+        filters: {
+            category: "",
+            date: "",
+            from: "",
+            to: "",
+            min: null,
+            max: null,
+            recurring: null
+        }
     }
 }
