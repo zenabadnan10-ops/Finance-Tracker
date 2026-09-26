@@ -38,7 +38,7 @@ p, h1, h2, h3, button, span {
 #dashboard-first-section, #dashboard-second-section, #dashboard-third-section {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 #dashboard-first-section h2, #dashboard-second-section h2, #dashboard-third-section h2 {

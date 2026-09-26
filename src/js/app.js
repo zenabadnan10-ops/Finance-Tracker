@@ -8,6 +8,7 @@ import { loadData } from "./storage/localStorage.js";
 import { filterIncomeExpense } from "./transactions/filters.js";
 import { getFilteredTransactions } from "./transactions/filters.js";
 import { exportCSV, exportJSON } from "./transactions/export.js";
+import { renderDashboard } from "./dashboard/dashboard.js";
 
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
@@ -128,6 +129,7 @@ const setupEventListeners = () => {
             deleteTransaction(id);
             renderTransactions(states.transactions);
             renderSummary(states.transactions);
+            renderDashboard(states.transactions);
             states.ui.deletingTransactionId = null;
         }
 
@@ -218,6 +220,7 @@ const handleSubmission = () => {
 
     renderTransactions(states.transactions);
     renderSummary(states.transactions);
+    renderDashboard(states.transactions);
     resetForm();
     closeTransactionModal();
 };
@@ -229,6 +232,7 @@ function init() {
     renderNavigation();
     renderTransactions(getFilteredTransactions());
     renderSummary(states.transactions);
+    renderDashboard();
     setupEventListeners();
 }
 
