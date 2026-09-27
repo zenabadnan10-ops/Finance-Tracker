@@ -1,0 +1,81 @@
+#add-budget-modal {
+    margin: auto;
+
+    width: 90%;
+    max-width: 500px;
+    height: fit-content;
+    border: none;
+    border-radius: 8px;
+    padding: 1.5rem;
+
+    &::backdrop {
+        background-color: #00000080;
+        backdrop-filter: blur(2px);
+    }
+}
+
+#add-budget-modal[open] {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#add-budget-heading {
+    text-align: center;
+    font-size: var(--h3);
+    color: var(--heading-color);
+}
+
+#add-budget-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#submit-budget-btn {
+    border: none;
+    background-color: var(--heading-color);
+    border-radius: var(--large-radius);
+    color: var(--background-color);
+    padding: 10px 15px;
+    transition: transform var(--normal-transition), background-color var(--normal-transition);
+}
+
+#submit-budget-btn:hover {
+    background-color: rgb(48, 48, 48);
+    transform: scale(1.02) translateY(-2px);
+    cursor: pointer;
+}
+
+#submit-budget-btn:active {
+    background-color: rgb(0, 0, 0);
+    transform: translateY(2px);
+}
+
+#cancel-add-budget-btn {
+    border: none;
+    background-color: white;
+    border-radius: var(--large-radius);
+    color: var(--heading-color);
+    padding: 10px 15px;
+    transition: transform var(--normal-transition), background-color var(--normal-transition);
+}
+
+#cancel-add-budget-btn:hover {
+    background-color: var(--background-color);
+    transform: scale(1.02) translateY(-2px);
+    cursor: pointer;
+}
+
+#cancel-add-budget-btn:active {
+    background-color: rgb(167, 167, 167);
+    transform: translateY(2px);
+}
+
+#add-budget-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
