@@ -224,11 +224,17 @@ p, h1, h2, h3, button, span {
     font-size: var(--body-text);
 }
 
-#no-recent-transactions {
+#no-recent-transactions, #no-recent-budgets {
     margin: auto;
 }
 
 #transactions-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#budgets-div {
     display: flex;
     flex-direction: column;
     gap: 10px;

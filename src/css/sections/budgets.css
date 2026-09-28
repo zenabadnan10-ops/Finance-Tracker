@@ -108,14 +108,14 @@
     color: var(--heading-color);
 }
 
-.budgets-section-btn-active {
-    border: none;
+.budgets-sections-btn.section-btn-active {
     background-color: var(--card-color);
     padding: 5px 10px;
     border-radius: var(--small-radius);
     color: var(--heading-color);
     font-weight: bold;
 }
+
 .no-budgets {
     text-align: center;
     background-color: var(--card-color);
@@ -134,9 +134,14 @@
 }
 
 #budgets-cards-section {
+    background-color: var(--card-color);
+    padding: 20px;
+    border: none;
+    border-radius: var(--small-radius);
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 15px;
+    height: fit-content;
 }
 
 .budget-card {
@@ -145,6 +150,7 @@
     gap: 12px;
     padding: 20px;
     background-color: var(--card-color);
+    height: fit-content;
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: var(--light-shadow);
     border-radius: var(--small-radius);
@@ -187,6 +193,10 @@
 
 .edit-budget-btn:hover, .delete-budget-btn:hover {
     background-color: var(--background-color);
+    cursor: pointer;
+}
+
+.ti-edit:hover, .ti-trash:hover {
     cursor: pointer;
 }
 

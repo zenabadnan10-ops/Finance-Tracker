@@ -2,6 +2,42 @@ const addModal = document.getElementById("add-transaction-modal");
 const addForm = document.getElementById("add-transaction-form");
 const deleteModal = document.getElementById("delete-transaction-modal");
 const filterModal = document.getElementById("filter-transaction-modal");
+const addBudgetModal = document.getElementById("add-budget-modal");
+const addBudgetForm = document.getElementById("add-budget-form");
+const deleteBudgetModal = document.getElementById("delete-budget-modal");
+
+export const openBudgetModal = (budget = null) => {
+    if(!addBudgetModal) return;
+
+    if(budget) {
+        addBudgetForm.elements["category"].value = budget.category;
+        addBudgetForm.elements["limit"].value = budget.limit;
+        addBudgetForm.elements["period"].value = budget.period;
+
+        document.getElementById("add-budget-heading").textContent = "Edit Budget";
+        document.getElementById("submit-budget-btn").textContent = "Edit Budget";
+    } else {
+        resetForm();
+        document.getElementById("add-budget-heading").textContent = "Add Budget";
+        document.getElementById("submit-budget-btn").textContent = "Add Budget";
+    }
+
+    addBudgetModal.showModal();
+};
+
+export const closeBudgetModal = () => {
+    if (addBudgetModal && addBudgetModal.open) {
+        addBudgetModal.close();
+    }
+};
+
+export const openDeleteBudgetModal = () => {
+    if (deleteBudgetModal) deleteBudgetModal.showModal();
+};
+
+export const closeDeleteBudgetModal = () => {
+    if (deleteBudgetModal && deleteBudgetModal.open) deleteBudgetModal.close();
+};
 
 export const openTransactionModal = (transaction = null) => {
     if (!addModal) return;
@@ -47,9 +83,15 @@ export const resetForm = () => {
             addForm.elements["recurring"].checked = false;
         }
     }
+
+    if(addBudgetForm) {
+        addBudgetForm.reset();
+    }
 };
 
 export const getForm = () => addForm;
+
+export const getBudgetForm = () => addBudgetForm;
 
 export const closeFilterModal = () => {
     if(filterModal) filterModal.close();

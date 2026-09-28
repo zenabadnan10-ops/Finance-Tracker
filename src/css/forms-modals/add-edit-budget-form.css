@@ -79,3 +79,40 @@
     align-items: center;
     gap: 10px;
 }
+
+#add-budget-modal label,
+#add-budget-modal input,
+#add-budget-modal select {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#add-budget-modal label {
+    margin-bottom: -10px;
+    display: block;
+    font-size: var(--small-text);
+}
+
+#add-budget-modal input,
+#add-budget-modal select {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(94, 94, 94);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#budget-limit-period-div {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+#budget-limit-div,
+#budget-period-div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+}

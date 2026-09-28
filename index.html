@@ -22,7 +22,7 @@
           <img src="/swap (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Transactions
         </button>
-        <button class="nav-btns" data-section="budgets">
+        <button id="budgets-btn" class="nav-btns" data-section="budgets">
           <img src="/pie.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
           <img src="/pie (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Budgets
@@ -155,11 +155,14 @@
             <h2 class="dashboard-sections-heading">
               Budgets
             </h2>
-            <button class="view-btn">
+            <button class="view-btn" id="see-more-budgets">
               See Details <span aria-hidden="true">→</span>
             </button>
           </div>
-          <div class="budgets-div"></div>
+          <div id="no-recent-budgets">
+            <p>No Budgets Yet</p>
+          </div>
+          <div id="budgets-div" class="budgets-div"></div>
         </article>
         <article class="dashboard-sections" id="dashboard-eight-section">
           <h2 class="dashboard-sections-heading">
@@ -425,19 +428,23 @@
         <select name="category" required id="add-budget-category">
           <option value="" disabled selected hidden>Select category</option>
           <option value="food">Food</option>
-          <option value="salary">Salary</option>
           <option value="transport">Transport</option>
-          <option value="freelance">Freelance</option>
           <option value="entertainment">Entertainment</option>
         </select>
-        <label for="budget-limit-amount">Monthly Limit (Rs.)</label>
-        <input type="number" step="any" name="limit" required id="budget-limit-amount" min="0">
-        <label for="budget-period">Period</label>
-        <select name="period" id="budget-period">
-          <option value="monthly">Monthly</option>
-          <option value="weekly">Weekly</option>
-          <option value="yearly">Yearly</option>
-        </select>
+        <div id="budget-limit-period-div">
+          <div id="budget-limit-div">
+            <label for="budget-limit-amount">Monthly Limit (Rs.)</label>
+            <input type="number" step="any" name="limit" required id="budget-limit-amount" min="0">
+          </div>
+          <div id="budget-period-div">
+            <label for="budget-period">Period</label>
+            <select name="period" id="budget-period">
+              <option value="monthly">Monthly</option>
+              <option value="weekly">Weekly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+          </div>
+        </div>
         <div id="add-budget-btns">
           <button id="submit-budget-btn" type="submit">Save Budget</button>
           <button type="button" id="cancel-add-budget-btn">Cancel</button>

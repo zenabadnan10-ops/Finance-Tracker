@@ -1,5 +1,6 @@
 export const states = {
     transactions: [],
+    budgets: [],
     ui: {
         editingTransactionId: null,
         deletingTransactionId: null,
@@ -13,6 +14,8 @@ export const states = {
             min: null,
             max: null,
             recurring: null
-        }
+        },
+        editingBudgetId: null,
+        deletingBudgetId: null
     }
 }

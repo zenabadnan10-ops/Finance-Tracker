@@ -18,7 +18,6 @@ const getCategoryIcon = (category) => {
 };
 
 export const createTransactionElement = (transaction, { showActions = true, showRecurring = true } = {}) => {
-    console.log("Creating card for:", transaction);
 
     const article = document.createElement("article");
 
@@ -115,7 +114,6 @@ export const renderSummary = (transactions) => {
         }
     }
 
-    console.log(total);
 
     transactionsTotal.textContent = Number(total);
 };
