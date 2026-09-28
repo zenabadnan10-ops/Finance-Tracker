@@ -308,9 +308,101 @@
       </div>
       </section>
       <section id="analytics" aria-labelledby="analytics-heading" class="page-section">
-        <h1 id="analytics-heading">
-          Analytics
-        </h1>
+        <div id="analytics-heading-section">
+          <div id="analytics-heading-div">
+            <h2 id="analytics-heading">
+              Analytics
+            </h2>
+            <p>
+              Understand your income, spending and saving habits.
+            </p>
+          </div>
+          <div id="analytics-range-div">
+            <label for="analytics-range" class="sr-only">Select date range</label>
+            <select id="analytics-range" class="analytics-range-select">
+              <option value="month" selected>This Month</option>
+              <option value="30days">Last 30 Days</option>
+              <option value="year">This Year</option>
+              <option value="all">All Time</option>
+              <option value="custom">Custom Range</option>
+            </select>
+          </div>
+        </div>
+        <div id="analytics-custom-range" class="analytics-custom-range" hidden>
+          <div class="date-field">
+            <label for="analytics-date-from">From</label>
+            <input type="date" id="analytics-date-from" name="from">
+          </div>
+          <div class="date-field">
+            <label for="analytics-date-to">To</label>
+            <input type="date" id="analytics-date-to" name="to">
+          </div>
+        </div>
+        <div id="analytics-summary-section" aria-live="polite">
+          <article class="analytics-summary-card">
+            <h3 class="analytics-summary-heading">Savings Rate</h3>
+            <p class="analytics-summary-amount">
+              <span id="analytics-savings-rate">0</span>%
+            </p>
+            <p class="analytics-summary-desc">
+              Share of your income you kept
+            </p>
+          </article>
+          <article class="analytics-summary-card">
+            <h3 class="analytics-summary-heading">Average Daily Spending</h3>
+            <p class="analytics-summary-amount">
+              Rs. <span id="analytics-daily-average">0</span>
+            </p>
+            <p class="analytics-summary-desc">
+              Across the selected period
+            </p>
+          </article>
+        </div>
+        <article class="analytics-card" id="analytics-spending-over-time">
+          <div class="analytics-card-heading">
+            <h3>Spending Over Time</h3>
+            <p>How your expenses changed across the period</p>
+          </div>
+          <div class="analytics-chart-div" id="spending-over-time-chart" role="img" aria-label="Line chart of spending over time"></div>
+          <p class="analytics-empty" hidden>No data for this period</p>
+        </article>
+        <div id="analytics-charts-row">
+          <article class="analytics-card" id="analytics-spending-by-category">
+            <div class="analytics-card-heading">
+              <h3>Spending by Category</h3>
+              <p>Where your money went</p>
+            </div>
+            <div class="analytics-chart-div" id="spending-by-category-chart" role="img" aria-label="Chart of spending split by category"></div>
+            <ul class="analytics-legend" id="spending-by-category-legend"></ul>
+            <p class="analytics-empty" hidden>No data for this period</p>
+          </article>
+          <article class="analytics-card" id="analytics-income-vs-expenses">
+            <div class="analytics-card-heading">
+              <h3>Income vs Expenses</h3>
+              <p>What came in compared to what went out</p>
+            </div>
+            <div class="analytics-chart-div" id="income-vs-expenses-chart" role="img" aria-label="Bar chart comparing income and expenses"></div>
+            <div class="income-expense-div">
+              <div class="income-div">
+                <div class="circle" aria-hidden="true"></div>
+                <p class="income-expense">Income</p>
+              </div>
+              <div class="expense-div">
+                <div class="circle" aria-hidden="true"></div>
+                <p class="income-expense">Expenses</p>
+              </div>
+            </div>
+            <p class="analytics-empty" hidden>No data for this period</p>
+          </article>
+        </div>
+        <article class="analytics-card" id="analytics-top-expenses">
+          <div class="analytics-card-heading">
+            <h3>Top Expenses</h3>
+            <p>Your five largest expenses in this period</p>
+          </div>
+          <div id="top-expenses-list"></div>
+          <p class="analytics-empty" hidden>No expenses in this period</p>
+        </article>
       </section>
       <section id="recurring-bills" aria-labelledby="recurring-bills-heading" class="page-section">
         <h1 id="recurring-bills-category">
