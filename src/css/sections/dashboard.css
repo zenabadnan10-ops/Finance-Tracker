@@ -70,7 +70,19 @@ p, h1, h2, h3, button, span {
     grid-row: 3;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+}
+
+.spending-chart-div {
+    position: relative;
+    width: 100%;
+    height: 200px; 
+    flex-shrink: 0; 
+}
+
+.spending-chart-div canvas {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .dashboard-heading-div {

@@ -182,3 +182,41 @@ export const getMonthlyComparison = (transactions) => {
 
     return totals;
 };
+
+export const getAllTimeMonthlyTotals = (transactions) => {
+    
+    if (transactions.length === 0) return [];
+
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    const earliest = transactions.reduce((min, t) => {
+        const d = new Date(t.date + "T00:00:00");
+        return d < min ? d : min;
+    }, today);
+
+    const buckets = [];
+    let cursor = new Date(earliest.getFullYear(), earliest.getMonth(), 1);
+
+    while (cursor <= today) {
+        buckets.push({
+            label: cursor.toLocaleString('default', { month: 'short', year: '2-digit' }),
+            month: cursor.getMonth(),
+            year: cursor.getFullYear(),
+            income: 0,
+            expenses: 0,
+        });
+        cursor = new Date(cursor.getFullYear(), cursor.getMonth() + 1, 1);
+    }
+
+    transactions.forEach((t) => {
+        const date = new Date(t.date + "T00:00:00");
+        const bucket = buckets.find(b => b.month === date.getMonth() && b.year === date.getFullYear());
+
+        if (!bucket) return;
+        if (t.type === "income") bucket.income += Number(t.amount);
+        if (t.type === "expense") bucket.expenses += Number(t.amount);
+    });
+
+    return buckets;
+};
