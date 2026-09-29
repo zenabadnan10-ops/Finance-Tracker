@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link rel="icon" type="image/png" href="/ChatGPT_Image_Sep_4__2026__05_10_40_PM-removebg-preview.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.js"></script>
     <title>Ledger</title>
   </head>
   <body>
@@ -98,7 +99,9 @@
               </div>
             </div>
           </div>
-          <div class="spending-chart-div" role="img" aria-label="Spending overview showing monthly income and expenses"></div>
+          <div class="spending-chart-div" id="dashboard-spending-chart" role="img" aria-label="Spending overview showing monthly income and expenses">
+            <canvas id="dashboard-spending-canvas"></canvas>
+          </div>
         </article>
         <article class="dashboard-sections" id="dashboard-fifth-section">
           <div class="dashboard-heading-div">
@@ -320,8 +323,8 @@
           <div id="analytics-range-div">
             <label for="analytics-range" class="sr-only">Select date range</label>
             <select id="analytics-range" class="analytics-range-select">
-              <option value="month" selected>This Month</option>
-              <option value="30days">Last 30 Days</option>
+              <option value="week" selected>This Week</option>
+              <option value="month">This Month</option>
               <option value="year">This Year</option>
               <option value="all">All Time</option>
             </select>
@@ -333,41 +336,20 @@
             <p class="analytics-summary-amount">
               <span id="analytics-savings-rate">0</span>%
             </p>
-            <p class="analytics-summary-desc">
-              Share of your income you kept
-            </p>
           </article>
           <article class="analytics-summary-card">
             <h3 class="analytics-summary-heading">Average Daily Spending</h3>
             <p class="analytics-summary-amount">
               Rs. <span id="analytics-daily-average">0</span>
             </p>
-            <p class="analytics-summary-desc">
-              Across the selected period
-            </p>
           </article>
         </div>
         <article class="analytics-card" id="analytics-spending-over-time">
-          <div class="analytics-card-heading">
-            <h3>Spending Over Time</h3>
-          </div>
-          <div class="analytics-chart-div" id="spending-over-time-chart" role="img" aria-label="Line chart of spending over time"></div>
-          <p class="analytics-empty" hidden>No data for this period</p>
-        </article>
-        <div id="analytics-charts-row">
-          <article class="analytics-card" id="analytics-spending-by-category">
-            <div class="analytics-card-heading">
-              <h3>Spending by Category</h3>
+          <div class="dashboard-heading-div">
+            <div class="dashboard-heading-right-div">
+              <h3>Spending Over Time</h3>
+              <p class="analytics-card-desc">Your spending activity over the last 6 months</p>
             </div>
-            <div class="analytics-chart-div" id="spending-by-category-chart" role="img" aria-label="Chart of spending split by category"></div>
-            <ul class="analytics-legend" id="spending-by-category-legend"></ul>
-            <p class="analytics-empty" hidden>No data for this period</p>
-          </article>
-          <article class="analytics-card" id="analytics-income-vs-expenses">
-            <div class="analytics-card-heading">
-              <h3>Income vs Expenses</h3>
-            </div>
-            <div class="analytics-chart-div" id="income-vs-expenses-chart" role="img" aria-label="Bar chart comparing income and expenses"></div>
             <div class="income-expense-div">
               <div class="income-div">
                 <div class="circle" aria-hidden="true"></div>
@@ -378,16 +360,34 @@
                 <p class="income-expense">Expenses</p>
               </div>
             </div>
+          </div>
+          <div class="analytics-chart-div" id="spending-over-time-chart">
+            <canvas id="spending-over-time-canvas"></canvas>
+          </div>
+          <p class="analytics-empty" hidden>No data for this period</p>
+        </article>
+        <div id="analytics-charts-row">
+          <article class="analytics-card" id="analytics-spending-by-category">
+            <div class="analytics-card-heading">
+              <h3>Spending by Category</h3>
+              <p>Where your money went</p>
+            </div>
+            <div class="analytics-chart-div" id="spending-by-category-chart">
+              <canvas id="spending-by-category-canvas"></canvas>
+            </div>
+            <p class="analytics-empty" hidden>No data for this period</p>
+          </article>
+          <article class="analytics-card" id="analytics-monthly-comparison">
+            <div class="analytics-card-heading">
+              <h3>Monthly Comparison</h3>
+              <p>This month vs last month</p>
+            </div>
+            <div class="analytics-chart-div" id="monthly-comparison-chart">
+              <canvas id="monthly-comparison-canvas"></canvas>
+            </div>
             <p class="analytics-empty" hidden>No data for this period</p>
           </article>
         </div>
-        <article class="analytics-card" id="analytics-top-expenses">
-          <div class="analytics-card-heading">
-            <h3>Top Expenses</h3>
-          </div>
-          <div id="top-expenses-list"></div>
-          <p class="analytics-empty" hidden>No expenses in this period</p>
-        </article>
       </section>
       <section id="recurring-bills" aria-labelledby="recurring-bills-heading" class="page-section">
         <h1 id="recurring-bills-category">

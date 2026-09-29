@@ -1,6 +1,7 @@
 import { states } from "../state/state";
 import { renderRecentBudgets } from "./recent-budgets";
 import { renderRecentTransactions } from "./recent-transactions";
+import { renderDashboardSpendingChart } from "./spending-chart";
 import { getFinancialSummary } from "./summary";
 
 const totalBalance = document.getElementById("total-balance");
@@ -20,11 +21,12 @@ export const renderDashboard = () => {
     // First Row
     const {balance, income, expense} = getFinancialSummary(states.transactions);
 
-    console.log(balance);
-
     totalBalance.textContent = balance;
     totalIncome.textContent = income;
     totalExpense.textContent = expense;
+
+    // Second Row First Column
+    renderDashboardSpendingChart(states.transactions);
 
     // Third Row First Column
     renderRecentTransactions();
