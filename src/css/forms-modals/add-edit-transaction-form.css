@@ -3,7 +3,7 @@
 
     width: 90%;
     max-width: 600px; 
-    height: 85vh;
+    height: fit-content;
     border: none;
     border-radius: 8px;
     padding: 1.5rem;
