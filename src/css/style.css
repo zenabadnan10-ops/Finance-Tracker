@@ -15,3 +15,5 @@
 
 @import "/src/css/forms-modals/add-edit-budget-form.css";
 @import "/src/css/forms-modals/delete-budget-modal.css";
+
+@import "/src/css/global/responsive.css";
