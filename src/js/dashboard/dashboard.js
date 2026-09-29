@@ -20,8 +20,6 @@ export const renderDashboard = () => {
     // First Row
     const {balance, income, expense} = getFinancialSummary(states.transactions);
 
-    console.log(balance);
-
     totalBalance.textContent = balance;
     totalIncome.textContent = income;
     totalExpense.textContent = expense;

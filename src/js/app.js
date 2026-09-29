@@ -35,6 +35,7 @@ import { validateBudgetForm } from './budgets/validateBudget.js';
 import { addBudget, deleteBudget, editBudget, getBudgets } from './budgets/budgets.js';
 import { renderBudgets } from './budgets/budgetUI.js';
 import { renderBudgetsSummary } from './budgets/budgetUI.js';
+import { renderAnalyticsCards } from './analytics/analyticsUI.js';
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
@@ -57,6 +58,7 @@ const cancelFilterBtn = document.getElementById('filter-cancel-btn');
 const filterModal = document.getElementById('filter-transaction-modal');
 const filterForm = document.getElementById('filter-transaction-form');
 const exportSelect = document.getElementById('export-transaction');
+
 const addBudgetsBtns = document.querySelectorAll('.add-budget-btn');
 const cancelBudgetBtn = document.getElementById('cancel-add-budget-btn');
 const budgetList = document.getElementById("budgets-cards-section");
@@ -66,7 +68,14 @@ const noBudgetFilterBtn = document.getElementById("no-budget-filter-btn");
 const OnTrackFilterBtn = document.getElementById("on-track-filter-btn");
 const OverBudgetFilterBtn = document.getElementById("over-budget-filter-btn");
 
+const analyticsRangeSelect = document.getElementById("analytics-range");
+
 const setupEventListeners = () => {
+
+  analyticsRangeSelect.addEventListener("change", (e) => {
+    states.ui.analyticsRange = e.target.value;
+    renderAnalyticsCards();
+  })
 
   cancelDeleteBudget.addEventListener('click', () => {
     states.ui.deletingBudgetId = null;
@@ -205,6 +214,7 @@ const setupEventListeners = () => {
       renderBudgets();
       renderSummary(states.transactions);
       renderBudgetsSummary();
+      renderAnalyticsCards();
       renderDashboard(states.transactions);
       states.ui.deletingTransactionId = null;
     }
@@ -357,6 +367,7 @@ const handleSubmission = () => {
   renderBudgets();
   renderSummary(states.transactions);
   renderBudgetsSummary();
+  renderAnalyticsCards();
   renderDashboard(states.transactions);
   resetForm();
   closeTransactionModal();
@@ -373,8 +384,9 @@ function init() {
   renderBudgets();
   renderSummary(states.transactions);
   renderBudgetsSummary();
+  renderAnalyticsCards();
   renderDashboard();
   setupEventListeners();
-}
+};
 
 init();

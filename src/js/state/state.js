@@ -16,6 +16,7 @@ export const states = {
             recurring: null
         },
         editingBudgetId: null,
-        deletingBudgetId: null
+        deletingBudgetId: null,
+        analyticsRange: "week",
     }
 }

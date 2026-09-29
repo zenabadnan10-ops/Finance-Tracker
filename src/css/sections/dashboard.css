@@ -121,6 +121,10 @@ p, h1, h2, h3, button, span {
     color: rgb(90, 90, 90);;
 }
 
+.dashboard-heading-right-div h3 {
+    font-size: var(--body-text);
+}
+
 .income-div, .expense-div {
     display: flex;
     flex-direction: row;
