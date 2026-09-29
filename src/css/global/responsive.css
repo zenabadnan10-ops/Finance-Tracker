@@ -1,0 +1,541 @@
+/* =========================================================
+   RESPONSIVE
+   Breakpoints: 1200 / 1000 / 768 / 600 / 480 / 400
+   ========================================================= */
+
+canvas {
+    max-width: 100%;
+}
+
+.first-row-amount,
+.analytics-summary-amount,
+.budgets-summary-amount,
+.recurring-bills-amount {
+    overflow-wrap: anywhere;
+}
+
+
+/* ---------------------------------------------------------
+   ≤1200px  (main area gets narrow because of the 250px sidebar)
+   --------------------------------------------------------- */
+@media (max-width: 1300px) {
+
+    /* smaller page padding */
+    #dashboard,
+    #transactions,
+    #budgets,
+    #analytics,
+    #recurring-bills {
+        padding: 24px;
+        padding-top: 16px;
+    }
+
+    /* Dashboard: drop the fixed row heights, restack big sections */
+    #dashboard {
+        grid-template-rows: none;
+        grid-auto-rows: auto;
+    }
+
+    #dashboard-heading {
+        grid-row: auto;
+        grid-column: 1 / -1;
+    }
+
+    #dashboard-first-section,
+    #dashboard-second-section,
+    #dashboard-third-section {
+        grid-row: auto;
+        grid-column: span 2;
+    }
+
+    #dashboard-fourth-section,
+    #dashboard-fifth-section,
+    #dashboard-sixth-section,
+    #dashboard-seventh-section,
+    #dashboard-eight-section {
+        grid-row: auto;
+        grid-column: 1 / -1;
+    }
+
+    /* Transactions toolbar: search input was ~400px wide because of padding-right: 325px */
+    #transactions-sort-btns {
+        flex-wrap: wrap;
+    }
+
+    #transactions-sort-btns > div:first-child {
+        flex: 1 1 220px;
+        min-width: 0;
+    }
+
+    #search-transactions {
+        width: 100%;
+        padding-right: 12px;
+    }
+
+    /* Budgets: cards flow into as many columns as fit */
+    #budgets-cards-section {
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    }
+}
+
+
+/* ---------------------------------------------------------
+   ≤1000px  (sidebar becomes a bottom navigation bar)
+   --------------------------------------------------------- */
+@media (max-width: 1000px) {
+
+    main {
+        margin-left: 0;
+        padding-bottom: 80px; /* room for the bottom bar */
+    }
+
+    #side-bar {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding: 6px 8px;
+        padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+        z-index: 100;
+        box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    #logo {
+        display: none;
+    }
+
+    #nav {
+        flex-direction: row;
+        width: 100%;
+        padding-right: 0;
+        gap: 4px;
+        justify-content: space-around;
+    }
+
+    .nav-btns {
+        flex: 1;
+        min-width: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        padding: 6px 4px;
+        font-size: 11px;
+        text-align: center;
+        border-radius: var(--small-radius);
+        border-top: 3px solid transparent; /* reserved so the active state doesn't shift layout */
+    }
+
+    .nav-btns.btn-active {
+        border-left: none;
+        border-top: 3px solid rgb(0, 185, 129);
+    }
+
+    .nav-btn-img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   ≤768px  (tablet portrait)
+   --------------------------------------------------------- */
+@media (max-width: 768px) {
+
+    /* Analytics: charts stack */
+    #analytics-charts-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Let the filter tab groups scroll instead of overflowing */
+    #transactions-sections-div,
+    #budgets-sections-div,
+    #recurring-bills-sections-div {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   ≤600px  (large phones)
+   --------------------------------------------------------- */
+@media (max-width: 650px) {
+
+    #dashboard,
+    #transactions,
+    #budgets,
+    #analytics,
+    #recurring-bills {
+        padding: 16px;
+        padding-top: 12px;
+        gap: 16px;
+    }
+
+    /* Bottom bar: icons only (text stays in the DOM for screen readers) */
+    .nav-btns {
+        font-size: 0;
+        gap: 0;
+        padding: 8px 4px;
+    }
+
+    /* Page headings: title on top, button below if it doesn't fit */
+    #transactions-heading-section,
+    #budgets-heading-section,
+    #analytics-heading-section {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    /* Dashboard */
+    .dashboard-sections {
+        padding: 16px;
+    }
+
+    #dashboard-first-section,
+    #dashboard-second-section,
+    #dashboard-third-section {
+        grid-column: 1 / -1;
+    }
+
+    .dashboard-heading-div {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .spending-chart-div {
+        height: 180px;
+    }
+
+    /* Summary grids: one column */
+    #budgets-summary-section,
+    #recurring-bills-summary-section,
+    #analytics-summary-section {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    /* Transactions toolbar: search full width, 3 controls share the next row */
+    #transactions-sort-btns {
+        gap: 10px;
+    }
+
+    #transactions-sort-btns > div:first-child {
+        flex: 1 1 100%;
+    }
+
+    #transactions-sort-btns > *:not(:first-child) {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    #open-filter-modal,
+    #sort-transaction,
+    #export-transaction {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 28px;
+    }
+
+    #transactions-summary-section {
+        flex-wrap: wrap;
+        gap: 2px 5px;
+    }
+
+    #transactions-cards-section,
+    #budgets-cards-section {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .transaction {
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .transaction-left {
+        gap: 10px;
+        min-width: 0;
+    }
+
+    .transaction-text {
+        min-width: 0;
+    }
+
+    .transaction-name {
+        overflow-wrap: anywhere;
+    }
+
+    .transaction-meta {
+        flex-wrap: wrap;
+    }
+
+    .transaction-right {
+        flex-shrink: 0;
+    }
+
+    .category-icon {
+        padding: 10px;
+    }
+
+    /* Analytics */
+    .analytics-card {
+        padding: 16px;
+    }
+
+    .analytics-chart-div {
+        min-height: 220px;
+    }
+
+    #spending-over-time-chart {
+        min-height: 240px;
+    }
+
+    #analytics-heading-section .dashboard-heading-div,
+    #analytics-spending-over-time .dashboard-heading-div {
+        flex-wrap: wrap;
+    }
+
+    /* Recurring bills */
+    .recurring-bill-card {
+        padding: 16px;
+    }
+
+    .recurring-bill-bottom {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    /* Modals */
+    #add-transaction-modal,
+    #add-budget-modal {
+        height: auto;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 1rem;
+    }
+
+    #add-transaction-modal[open],
+    #add-budget-modal[open] {
+        gap: 24px;
+    }
+
+    #delete-transaction-modal,
+    #delete-budget-modal {
+        height: auto;
+        max-height: 90vh;
+    }
+
+    #delete-transaction-modal[open],
+    #delete-budget-modal[open] {
+        padding-top: 32px;
+        padding-bottom: 32px;
+        gap: 20px;
+    }
+
+    #dashboard-fourth-section .dashboard-heading-div {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 8px 12px;
+    }
+
+    #dashboard-fourth-section .dashboard-heading-right-div {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    /* unwrap the left div so its children can be placed on the grid */
+    #dashboard-fourth-section .dashboard-heading-left-div {
+        display: contents;
+    }
+
+    #dashboard-fourth-section .view-btn {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        white-space: nowrap;
+        padding: 0;
+    }
+
+    #dashboard-fourth-section .income-expense-div {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: flex-start;
+    }
+
+    #dashboard-fourth-section .dashboard-section-desc {
+        font-size: 12px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   ≤480px  (phones)
+   --------------------------------------------------------- */
+@media (max-width: 480px) {
+
+    :root {
+        --large-text: 18px;
+        --body-text: 15px;
+        --h3: 22px;
+    }
+
+    /* Make the "Add" buttons and range select full width */
+    .add-transaction-btn,
+    .add-budget-btn {
+        width: 100%;
+    }
+
+    #analytics-range-div,
+    .analytics-range-select {
+        width: 100%;
+    }
+
+    .dashboard-heading-left-div {
+        align-items: flex-start;
+    }
+
+    /* Stack side-by-side form fields */
+    #transaction-amount-category-div,
+    #budget-limit-period-div {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    #amount-div,
+    #category-div,
+    #budget-limit-div,
+    #budget-period-div {
+        width: 100%;
+    }
+
+    #transaction-type-div {
+        flex-wrap: wrap;
+    }
+
+    /* Modal buttons: bigger tap targets, share the row */
+    #add-transaction-btns,
+    #add-budget-btns,
+    #delete-budget-btns,
+    #delete-transaction-btns {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    #add-transaction-btns button,
+    #add-budget-btns button,
+    #delete-budget-btns button,
+    #delete-transaction-btns button {
+        flex: 1 1 120px;
+        padding: 12px 15px;
+    }
+
+    .analytics-legend li {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   ≤400px  (small phones)
+   --------------------------------------------------------- */
+@media (max-width: 400px) {
+
+    #filter-transaction-modal {
+        width: calc(100% - 32px);
+        max-width: 340px;
+        padding: 16px;
+    }
+
+    #date-range-div {
+        flex-direction: column;
+    }
+
+    #amount-range-div {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Touch devices: hover-lift effects cause sticky states and
+   sideways overflow, so turn them off
+   --------------------------------------------------------- */
+@media (hover: none) {
+    .transaction:hover,
+    .budget-card:hover,
+    .recurring-bill-card:hover,
+    .add-transaction-btn:hover,
+    .add-budget-btn:hover,
+    #submit-btn:hover,
+    #submit-budget-btn:hover,
+    #cancel-add-btn:hover,
+    #cancel-add-budget-btn:hover,
+    #delete-modal-btn:hover,
+    #delete-budget-modal-btn:hover,
+    #close-transaction-btn:hover,
+    #close-budget-modal-btn:hover {
+        transform: none;
+    }
+}
+
+/* =========================================================
+   MODALS + FORMS (all screen sizes)
+   Size to content, never taller than the screen, scroll if needed
+   ========================================================= */
+dialog#add-transaction-modal[open],
+dialog#add-budget-modal[open],
+dialog#delete-transaction-modal[open],
+dialog#delete-budget-modal[open],
+dialog#filter-transaction-modal[open] {
+    /* undo anything that stretches the dialog */
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    height: fit-content;
+    min-height: 0;
+    max-height: calc(100vh - 2rem);
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+dialog#add-transaction-modal[open]    { width: min(600px, calc(100% - 2rem)); }
+dialog#add-budget-modal[open]         { width: min(500px, calc(100% - 2rem)); }
+dialog#delete-transaction-modal[open],
+dialog#delete-budget-modal[open]      { width: min(420px, calc(100% - 2rem)); }
+dialog#filter-transaction-modal[open] { width: min(340px, calc(100% - 2rem)); }
+
+/* tighter spacing so content sets the height, not the padding */
+dialog#add-transaction-modal[open],
+dialog#add-budget-modal[open] {
+    gap: 24px;
+    padding: 1.25rem;
+}
+
+dialog#delete-transaction-modal[open],
+dialog#delete-budget-modal[open] {
+    gap: 20px;
+    padding: 2rem 1.25rem;
+    text-align: center;
+}
+
+/* forms must not stretch to fill the dialog */
+#add-transaction-form,
+#add-budget-form {
+    height: auto;
+    min-height: 0;
+    flex: 0 1 auto;
+}
+
+#delete-transaction-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
