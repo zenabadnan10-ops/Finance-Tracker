@@ -8,6 +8,7 @@
 @import "/src/css/sections/transactions.css";
 @import "/src/css/sections/budgets.css";
 @import "/src/css/sections/analytics.css";
+@import "/src/css/sections/recurring.css";
 
 @import "/src/css/forms-modals/add-edit-transaction-form.css";
 @import "/src/css/forms-modals/delete-transaction-modal.css";
