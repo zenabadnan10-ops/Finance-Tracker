@@ -1,20 +1,18 @@
-# 📒 Ledger
+# Ledger
 
 **Ledger** is a browser-based personal finance tracker for managing your budget. Log income and expenses, set spending limits by category, and understand your habits through a dashboard, insights, and charts. All data is stored locally in your browser, so there is no account, backend, or setup beyond running the app.
 
-> Amounts are displayed in Pakistani Rupees (Rs.).
-
 ---
 
-## ✨ Features
+## Features
 
-### 📊 Dashboard
+### Dashboard
 - At-a-glance **total balance**, **income**, and **expenses**
 - **Spending Overview** chart of monthly income vs. expenses across the year
 - Recent transactions and budget progress previews
 - Automatic **insights** (positive, neutral, and negative) based on your transactions and budgets
 
-### 💸 Transactions
+### Transactions
 - Add, edit, and delete income and expense transactions
 - Fields: type, description, amount, category, date, and recurring flag
 - **Search** by keyword
@@ -25,25 +23,25 @@
 - Live count and total for the currently shown transactions
 - Form validation with confirmation before deleting
 
-### 🎯 Budgets
+### Budgets
 - Set spending limits per category (Food, Transport, Entertainment) with a weekly, monthly, or yearly period
 - Summary cards for **Total Budgeted**, **Total Spent**, and **Remaining**
 - Filter budgets by status: All / On Track / Over Budget
 - Budgets update automatically as you add, edit, or delete transactions
 
-### 📈 Analytics
+### Analytics
 - Choose a range: This Week, This Month, This Year, or All Time
 - **Savings rate** and **average daily spending**
 - **Spending Over Time** chart
 - **Spending by Category** chart
 - **Monthly Comparison** (this month vs. last month)
 
-### 💾 Storage
+### Storage
 - Transactions and budgets persist in the browser via **localStorage**
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Purpose      | Tool                                                                 |
 | ------------ | -------------------------------------------------------------------- |
@@ -58,7 +56,7 @@ No frontend framework is used.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Finance-Tracker/
@@ -82,7 +80,7 @@ Finance-Tracker/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) (LTS recommended)
@@ -106,7 +104,7 @@ Open the URL shown in your terminal (usually `http://localhost:5173`).
 
 ---
 
-## 📜 Scripts
+## Scripts
 
 | Command                | Description                             |
 | ---------------------- | --------------------------------------- |
@@ -118,38 +116,12 @@ Open the URL shown in your terminal (usually `http://localhost:5173`).
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
-Run `npm run build` and deploy the `dist/` folder to any static host such as Netlify, Vercel, or GitHub Pages.
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Custom categories
-- [ ] Multi-currency support
-- [ ] Automatic generation of recurring transactions
-- [ ] Dark mode
-- [ ] Data import (CSV/JSON)
+Available on 
 
 ---
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m "Add your feature"`
-4. Run `npm run format` before pushing
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-Add a `LICENSE` file (e.g. MIT) to specify how others may use this project.
-
----
-
-## 👤 Author
+## Author
 
 Built by [@zenabadnan10-ops](https://github.com/zenabadnan10-ops)
