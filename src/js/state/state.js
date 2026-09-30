@@ -19,4 +19,4 @@ export const states = {
         deletingBudgetId: null,
         analyticsRange: "week",
     }
-}
+};
