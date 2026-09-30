@@ -255,3 +255,99 @@ p, h1, h2, h3, button, span {
     flex-direction: column;
     gap: 10px;
 }
+
+#dashboard-eight-section {
+  --insight-positive-bg: #e6f3ea;
+  --insight-positive-fg: #1e8449;
+  --insight-neutral-bg: #e5f0ed;
+  --insight-neutral-fg: #1d6b5a;
+  --insight-negative-bg: #fdeedd;
+  --insight-negative-fg: #b45f06;
+}
+
+#dashboard-eight-section .insights[hidden],
+#dashboard-eight-section .no-insights[hidden],
+#dashboard-eight-section .insights > [hidden] {
+  display: none;
+}
+
+#dashboard-eight-section .insights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#dashboard-eight-section .positive-insight,
+#dashboard-eight-section .neutral-insight,
+#dashboard-eight-section .negative-insight {
+  display: contents;
+}
+
+.insight-item {
+  --insight-bg: var(--insight-neutral-bg);
+  --insight-fg: var(--insight-neutral-fg);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  background: var(--insight-bg);
+}
+
+.insight-item[data-tone="positive"] {
+  --insight-bg: var(--insight-positive-bg);
+  --insight-fg: var(--insight-positive-fg);
+}
+.insight-item[data-tone="neutral"] {
+  --insight-bg: var(--insight-neutral-bg);
+  --insight-fg: var(--insight-neutral-fg);
+}
+.insight-item[data-tone="negative"] {
+  --insight-bg: var(--insight-negative-bg);
+  --insight-fg: var(--insight-negative-fg);
+}
+
+.insight-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.625rem;
+  background: #fff;
+  color: var(--insight-fg);
+}
+
+.insight-icon svg {
+  display: block;
+}
+
+.insight-text {
+  margin: 0;
+  min-width: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: inherit;
+}
+
+#dashboard-eight-section .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 480px) {
+  .insight-item {
+    padding: 0.875rem 1rem;
+    gap: 0.75rem;
+  }
+  .insight-text {
+    font-size: 0.9375rem;
+  }
+}

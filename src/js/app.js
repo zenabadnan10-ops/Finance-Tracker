@@ -36,6 +36,7 @@ import { addBudget, deleteBudget, editBudget, getBudgets } from './budgets/budge
 import { renderBudgets } from './budgets/budgetUI.js';
 import { renderBudgetsSummary } from './budgets/budgetUI.js';
 import { renderAnalyticsCards } from './analytics/analyticsUI.js';
+import { renderInsights } from './dashboard/insights.js';
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
@@ -385,6 +386,7 @@ function init() {
   renderSummary(states.transactions);
   renderBudgetsSummary();
   renderAnalyticsCards();
+  renderInsights(states.transactions, states.budgets);
   renderDashboard();
   setupEventListeners();
 };
