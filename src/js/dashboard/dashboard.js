@@ -15,6 +15,9 @@ const dashboardBtn = document.getElementById("dashboard-btn");
 const budgetsSection = document.getElementById("budgets")
 const budgetsBtn = document.getElementById("budgets-btn");
 const viewBudgetsBtn = document.getElementById("see-more-budgets");
+const viewAnalyticsBtn = document.getElementById("see-more-analytics");
+const analyticsSection = document.getElementById("analytics");
+const analyticsBtn = document.getElementById("analytics-btn");
 
 export const renderDashboard = () => {
 
@@ -27,6 +30,17 @@ export const renderDashboard = () => {
 
     // Second Row
     renderDashboardSpendingChart(states.transactions);
+
+    viewAnalyticsBtn.addEventListener("click", () => {
+        dashboardSections.style.display = "none";
+        analyticsSection.style.display = "";
+
+        dashboardBtn.classList.remove("btn-active");
+        dashboardBtn.removeAttribute("aria-current");
+
+        analyticsBtn.classList.add("btn-active");
+        analyticsBtn.setAttribute("aria-current", "page");
+    });
 
     // Third Row First Column
     renderRecentTransactions();
