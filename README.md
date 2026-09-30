@@ -118,7 +118,7 @@ Open the URL shown in your terminal (usually `http://localhost:5173`).
 
 ## Deployment
 
-Available on 
+Available on https://finance-tracker-lemon-omega.vercel.app/
 
 ---
 
