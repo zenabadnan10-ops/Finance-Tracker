@@ -33,11 +33,6 @@
           <img src="/chartLine (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
           Analytics
         </button>
-        <button class="nav-btns" data-section="recurring-bills">
-          <img src="/layers.svg" class="nav-btn-img icon-default" alt="" aria-hidden="true">
-          <img src="/layers (1).svg" class="nav-btn-img icon-hover" alt="" aria-hidden="true">
-          Recurring Bills
-        </button>
       </nav>
     </aside>
     <main>
@@ -101,42 +96,6 @@
           </div>
           <div class="spending-chart-div" id="dashboard-spending-chart" role="img" aria-label="Spending overview showing monthly income and expenses">
             <canvas id="dashboard-spending-canvas"></canvas>
-          </div>
-        </article>
-        <article class="dashboard-sections" id="dashboard-fifth-section">
-          <div class="dashboard-heading-div">
-            <h2 class="dashboard-sections-heading">
-              Recurring Bills
-            </h2>
-            <button class="view-btn">
-              See Details <span aria-hidden="true">→</span>
-            </button>
-          </div>
-          <div class="recurring-bills-category">
-            <div class="paid-bills-div">
-              <p class="recurring-bills-heading">
-                Paid Bills
-              </p>
-              <p class="recurring-bills-amount">
-                Rs. 0
-              </p>
-            </div>
-            <div class="upcoming-bills-div">
-              <p class="recurring-bills-heading">
-                Total Upcoming
-              </p>
-              <p class="recurring-bills-amount">
-                Rs. 0
-              </p>
-            </div>
-            <div class="due-bills-div">
-              <p class="recurring-bills-heading">
-                Due Soon
-              </p>
-              <p class="recurring-bills-amount">
-                Rs. 0
-              </p>
-            </div>
           </div>
         </article>
         <article class="dashboard-sections" id="dashboard-sixth-section">
@@ -387,58 +346,6 @@
             </div>
             <p class="analytics-empty" hidden>No data for this period</p>
           </article>
-        </div>
-      </section>
-      <section id="recurring-bills" aria-labelledby="recurring-bills-heading" class="page-section">
-        <div id="recurring-bills-heading-section">
-          <div id="recurring-bills-heading-div">
-            <h2 id="recurring-bills-heading">
-              Recurring Bills
-            </h2>
-            <p>
-              Track upcoming, due and paused recurring transactions.
-            </p>
-          </div>
-          <button type="button" class="add-transaction-btn" id="add-recurring-btn">
-            + Add Recurring Transaction
-          </button>
-        </div>
-        <div id="recurring-bills-summary-section" aria-live="polite">
-          <article class="recurring-bills-summary-card paid">
-            <p class="recurring-bills-heading">Paid</p>
-            <p class="recurring-bills-amount">Rs. <span id="recurring-paid-amount">0</span></p>
-          </article>
-          <article class="recurring-bills-summary-card upcoming">
-            <p class="recurring-bills-heading">Total Upcoming</p>
-            <p class="recurring-bills-amount">Rs. <span id="recurring-upcoming-amount">0</span></p>
-          </article>
-          <article class="recurring-bills-summary-card due">
-            <p class="recurring-bills-heading">Due Soon</p>
-            <p class="recurring-bills-amount">Rs. <span id="recurring-due-amount">0</span></p>
-          </article>
-        </div>
-        <div id="recurring-bills-sections-div" role="group" aria-label="Recurring bill filters">
-          <button type="button" id="no-recurring-filter-btn" class="recurring-bills-sections-btn" aria-pressed="true">
-            All
-          </button>
-          <button type="button" id="upcoming-recurring-filter-btn" class="recurring-bills-sections-btn" aria-pressed="false">
-            Upcoming
-          </button>
-          <button type="button" id="due-recurring-filter-btn" class="recurring-bills-sections-btn" aria-pressed="false">
-            Due Soon
-          </button>
-          <button type="button" id="paused-recurring-filter-btn" class="recurring-bills-sections-btn" aria-pressed="false">
-            Paused
-          </button>
-        </div>
-        <div class="no-recurring-bills">
-          <h3>No recurring bills set up</h3>
-          <p>Mark a transaction as recurring to see it tracked here.</p>
-          <button type="button" class="add-transaction-btn" id="empty-add-recurring-btn">
-            + Add Recurring Transaction
-          </button>
-        </div>
-        <div id="recurring-bills-cards-section">
         </div>
       </section>
     </main>

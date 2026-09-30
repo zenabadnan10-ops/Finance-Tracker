@@ -25,7 +25,7 @@ export const renderDashboard = () => {
     totalIncome.textContent = income;
     totalExpense.textContent = expense;
 
-    // Second Row First Column
+    // Second Row
     renderDashboardSpendingChart(states.transactions);
 
     // Third Row First Column
